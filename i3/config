@@ -45,6 +45,7 @@
 
   ##----- Autostart -----##
   exec --no-startup-id unclutter --timeout 2 --ignore-scrolling &
+  exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 
 ##----- Window navigation -----##
   bindsym $mod+q kill
@@ -114,7 +115,6 @@ client.focused              $red        $red        $grey     $grey
 client.focused_inactive     $bgpale     $bgpale     $grey     $grey
 client.unfocused            $bgpale     $bgpale     $grey     $grey
 hide_edge_borders both
-exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 
 ##----- Gaps -----##
 Gaps inner 25
