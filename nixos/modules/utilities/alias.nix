@@ -28,7 +28,7 @@
     nix-reb="sudo nixos-rebuild switch";
   };
 
-  environment.variables = { DOTFILES="/home/matt/.files"; };
+  environment.variables = { DOTFILES="/home/matt/dotfiles"; };
 
   environment.systemPackages = with pkgs; [
     zsh
