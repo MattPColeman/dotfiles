@@ -34,6 +34,18 @@
   set $editor "atom"
   set $spotlight "rofi -show run -font \\"Iosevka 12\\" -theme .config/rofi/arc-dark"
 
+  ##----- Launchers -----##
+  bindsym $mod+Return exec --no-startup-id $terminal
+  bindsym $mod+a exec --no-startup-id atom
+  bindsym $mod+t exec --no-startup-id thunar
+  bindsym $mod+f exec --no-startup-id GTK_THEME=Adwaita firefox
+  bindsym $mod+c exec --no-startup-id chromium
+  bindsym $mod+s exec --no-startup-id spotify
+  bindsym $mod+space exec --no-startup-id $spotlight
+
+  ##----- Autostart -----##
+  exec --no-startup-id unclutter --timeout 2 --ignore-scrolling &
+
 ##----- Window navigation -----##
   bindsym $mod+q kill
 
@@ -81,23 +93,6 @@
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -b 'Yes' 'i3-msg exit'"
   bindsym $mod+Shift+q exec "i3-nagbar -t error -m 'Shut down?' -b 'Yes' 'shutdown now'"
 
-## resize mode
-#bindsym $mod+r mode "resize"
-#mode "resize" {
-#        bindsym j resize shrink width 10 px or 10 ppt
-#        bindsym k resize grow height 10 px or 10 ppt
-#        bindsym l resize shrink height 10 px or 10 ppt
-#        bindsym semicolon resize grow width 10 px or 10 ppt
-#
-#        bindsym Left resize shrink width 10 px or 10 ppt
-#        bindsym Down resize grow height 10 px or 10 ppt
-#        bindsym Up resize shrink height 10 px or 10 ppt
-#        bindsym Right resize grow width 10 px or 10 ppt
-#
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#}
-
 bar {
         position top
         status_command i3status
@@ -114,23 +109,23 @@ bar {
         }
 }
 
-## aesthetics:
+##----- Aesthetics -----##
 client.focused              $red        $red        $grey     $grey
 client.focused_inactive     $bgpale     $bgpale     $grey     $grey
 client.unfocused            $bgpale     $bgpale     $grey     $grey
 hide_edge_borders both
 exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
-## gaps:
-#smart_gaps on
+
+##----- Gaps -----##
 Gaps inner 25
 Gaps outer 25
 for_window [class="^.*"] border pixel 0
 
-# border on, see where focus is
+##----- Check focus-----##
 bindsym $mod+semicolon exec i3-msg border pixel 1
 bindsym --release $mod+semicolon exec i3-msg border pixel 0
 
-## pulse Audio controls
+##----- Pulseaudio -----##
 bindsym $mod+period exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym $mod+comma exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym $mod+m exec --no-startup-id pactl set-sink-mute 0 toggle
@@ -138,53 +133,3 @@ bindsym $mod+m exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+Shift+period exec --no-startup-id pactl set-sink-volume 1 +5%
 bindsym $mod+Shift+comma exec --no-startup-id pactl set-sink-volume 1 -5%
 bindsym $mod+Shift+m exec --no-startup-id pactl set-sink-mute 1 toggle
-
-## app launching
-bindsym $mod+Return exec --no-startup-id $terminal
-bindsym $mod+a exec --no-startup-id atom
-bindsym $mod+t exec --no-startup-id thunar
-bindsym $mod+f exec --no-startup-id GTK_THEME=Adwaita firefox
-bindsym $mod+c exec --no-startup-id chromium
-bindsym $mod+s exec --no-startup-id spotify
-bindsym $mod+space exec --no-startup-id $spotlight
-
-## autostart
-#exec dropbox start &
-exec --no-startup-id unclutter --timeout 2 --ignore-scrolling &
-#exec atom
-#exec firefox
-#exec spotify
-
-## set app workspaces
-#for_window [class="Chromium-browser"] move to workspace $workspace2
-#for_window [class="Atom"] move to workspace $workspace4
-#for_window [class="Spotify"] move to workspace $workspace10
-
-##----- Trash heap -----##
-#floating_modifier $mod
-#bindsym $mod+space exec rofi -show run -width 1920 -padding 400 -location 0 -lines 7 -eh 2 -opacity "85" -bw 0 -bc "#2F343F" -bg "#2F343F" -fg "#77dd77" -hlbg "#2F343F" -hlfg $red -font "Iosevka Term 12"
-# move focused container to workspace
-#bindsym $mod+Shift+2 move container to $workspace2
-#bindsym $mod+Shift+1 move container to $workspace1
-#bindsym $mod+Shift+3 move container to $workspace3
-#bindsym $mod+Shift+4 move container to $workspace4
-#bindsym $mod+Shift+5 move container to workspace 5
-#bindsym $mod+Shift+6 move container to workspace 6
-#bindsym $mod+Shift+7 move container to workspace 7
-#bindsym $mod+Shift+8 move container to workspace 8
-#bindsym $mod+Shift+9 move container to workspace 9
-#bindsym $mod+Shift+0 move container to $workspace10
-# toggle tiling / floating
-#bindsym $mod+Shift+space floating toggle
-# change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-#bindsym $mod+e layout toggle split
-# shift workspace
-#bindsym Mod1+Control+Left workspace prev
-#bindsym Mod1+Control+Right workspace next
-# Set app workspaces
-#assign [class="Chromium-browser"] $workspace2
-#assign [class="Atom"] $workspace4
-#assign [class="Spotify"] $workspace10
-#for_window [class="Spotify"] move to workspace $workspace10
