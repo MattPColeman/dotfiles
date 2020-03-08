@@ -1,8 +1,8 @@
+atom-inline-blame@0.0.7
 busy-signal@2.0.1
 language-i3wm@0.1.0
 language-ini@1.23.0
 language-latex@1.2.0
-language-r@0.4.2
 language-scala@1.1.10
 language-terraform@0.8.1
 linter-terraform-syntax@1.4.0

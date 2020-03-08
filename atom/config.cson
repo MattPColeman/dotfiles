@@ -9,9 +9,13 @@
     ]
     telemetryConsent: "no"
   editor:
+    preferredLineLength: 120
+    scrollPastEnd: true
     showInvisibles: true
   "exception-reporting":
     userId: "7ef383a4-a920-41bb-a00c-289200831fcf"
+  "git-blame":
+    columnWidth: 323
   "linter-terraform-syntax":
     checkRequiredVar: false
     newVersion: true
