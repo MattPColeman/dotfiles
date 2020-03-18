@@ -45,6 +45,7 @@
       ../../modules/utilities/users.nix   # define users
       ../../modules/utilities/wifi.nix    # home network
       ../../modules/utilities/mounting.nix
+      ../../modules/utilities/keyboard.nix
 
     ];
 
