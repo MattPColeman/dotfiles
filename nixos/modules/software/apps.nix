@@ -41,10 +41,8 @@
     ##-------- Development --------##
     R
 
-    python
-    python27Packages.numpy
-    python27Packages.scipy
-    python27Packages.pandas
+    python3
+    python36Packages.black
 
     scala sbt
     jre jdk ant
