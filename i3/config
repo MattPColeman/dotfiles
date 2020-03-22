@@ -41,6 +41,7 @@
   bindsym $mod+f exec --no-startup-id GTK_THEME=Adwaita firefox
   bindsym $mod+c exec --no-startup-id chromium
   bindsym $mod+s exec --no-startup-id spotify
+  bindsym $mod+n exec --no-startup-id notable
   bindsym $mod+space exec --no-startup-id $spotlight
 
   ##----- Autostart -----##
