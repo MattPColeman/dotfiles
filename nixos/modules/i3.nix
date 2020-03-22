@@ -1,15 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  # Configure i3
   services.xserver.windowManager.i3 = {
     enable=true;
     configFile=../../i3/config;
     package = pkgs.i3-gaps;
     extraPackages = with pkgs; [ i3status i3lock ];
   };
-
-  # Configure compositor
   services.compton = {
     enable = true;
     fade = true;
