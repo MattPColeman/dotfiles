@@ -19,6 +19,8 @@
   "linter-terraform-syntax":
     checkRequiredVar: false
     newVersion: true
+  "python-black":
+    lineLength: 120
   "seti-syntax":
     dynamicColor: false
     themeColor: "Blue"
