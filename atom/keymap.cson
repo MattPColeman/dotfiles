@@ -2,10 +2,14 @@
 # * http://flight-manual.atom.io/using-atom/sections/basic-customization/#_customizing_keybindings
 # * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
 
-'atom-text-editor':
+'.platform-linux':
   'alt-up': 'editor:move-line-up'
   'alt-down': 'editor:move-line-down'
-  'cmd-g': 'github:toggle-git-tab'
+  'ctrl-b': 'tree-view:toggle'
+  'ctrl-g': 'github:toggle-git-tab'
 
 '.platform-darwin':
+  'alt-up': 'editor:move-line-up'
+  'alt-down': 'editor:move-line-down'
   'cmd-b': 'tree-view:toggle'
+  'cmd-g': 'github:toggle-git-tab'
