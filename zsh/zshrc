@@ -1,0 +1,10 @@
+export DOTFILES=$HOME/dotfiles
+export ZSH=$DOTFILES/zsh
+
+ZSH_THEME='simple'
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+source $HOME/.nix-profile/etc/profile.d/nix.sh
+source $DOTFILES/zsh/aliases.sh
+source $DOTFILES/zsh/environment.sh
