@@ -2,8 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    exfat   # universal fs
-    ntfs3g  # windows sucks
+    exfat
+    ntfs3g
   ];
 
   fileSystems."/data" =

@@ -15,4 +15,12 @@
     xmodmap -e "keycode 134 = Down"
     xmodmap -e "keycode 105 = Right"
   '';
+
+  services.xserver.autoRepeatDelay = 350;
+  services.xserver.autoRepeatInterval = 22;
+
+  console.keyMap = "uk";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
 }

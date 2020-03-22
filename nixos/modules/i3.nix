@@ -4,7 +4,7 @@
   # Configure i3
   services.xserver.windowManager.i3 = {
     enable=true;
-    configFile=../../../i3/config;
+    configFile=../../i3/config;
     package = pkgs.i3-gaps;
     extraPackages = with pkgs; [ i3status i3lock ];
   };
@@ -16,17 +16,17 @@
     fadeDelta = 4;
     fadeSteps = ["0.03" "0.03"];
     shadow = true;
-    #shadowOffsets = [ 7 7 ];
     shadowOpacity = "0.8";
     shadowExclude = ["name ~= 'i3bar'" "window_type *= 'menu'"];
     backend = "glx";
     vSync = true;
   };
 
-  # i3 specific packages
   environment.systemPackages = with pkgs; [
-    feh scrot imagemagick     # xlocker tools
+    feh scrot imagemagick  # xlocker
     lxappearance
+    rofi
+    unclutter-xfixes
   ];
 
   nixpkgs.config.packageOverrides = pkgs:
