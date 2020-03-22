@@ -17,3 +17,7 @@ ln -s $DOTFILES/atom/packages.txt $HOME/.atom/packages.txt
 # Nixos
 rm /etc/nixos/configuration.nix
 ln -s $DOTFILES/nixos/hosts/gnoph/configuration.nix /etc/nixos/configuration.nix
+
+# Zsh
+rm $HOME/.zshrc
+ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
