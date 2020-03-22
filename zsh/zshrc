@@ -5,6 +5,9 @@ ZSH_THEME='simple'
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.nix-profile/etc/profile.d/nix.sh
-source $DOTFILES/zsh/aliases.sh
-source $DOTFILES/zsh/environment.sh
+source $ZSH/aliases.sh
+source $ZSH/environment.sh
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source $ZSH/mac-specific.sh
+fi
