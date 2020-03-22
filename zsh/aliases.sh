@@ -14,6 +14,6 @@ alias treee="tree -a -I '.git'"
 alias gst="git status"
 alias gc="git commit"
 alias gd="git diff"
-alias gcm = "git checkout master"
+alias gcm="git checkout master"
 
 alias nix-reb="sudo nixos-rebuild switch"
