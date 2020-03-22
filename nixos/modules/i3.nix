@@ -7,6 +7,7 @@
     package = pkgs.i3-gaps;
     extraPackages = with pkgs; [ i3status i3lock ];
   };
+
   services.compton = {
     enable = true;
     fade = true;
