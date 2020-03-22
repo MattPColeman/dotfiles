@@ -12,3 +12,17 @@
   'Console log':
     'prefix': 'log'
     'body': 'console.log $1'
+
+'.source.python':
+  'NotImplemented':
+    'prefix': 'not'
+    'body': "raise NotImplementedError"
+  'Log':
+    'prefix': 'log'
+    'body': "self.log.info(f'$1')"
+  'Property':
+    'prefix': 'prop'
+    'body': '@property\ndef ${1:prop}(self):\n    $2'
+  'ClassMethod':
+    'prefix': 'classmethod'
+    'body': '@classmethod\ndef ${1:classmethod}(cls):\n    $2'
