@@ -46,6 +46,7 @@
       ../../modules/utilities/wifi.nix    # home network
       ../../modules/utilities/mounting.nix
       ../../modules/utilities/keyboard.nix
+      ../../modules/utilities/power-management.nix
 
     ];
 
