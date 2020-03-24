@@ -26,3 +26,18 @@
   'ClassMethod':
     'prefix': 'classmethod'
     'body': '@classmethod\ndef ${1:classmethod}(cls):\n    $2'
+  'MainBoilerplate':
+    'prefix': 'main'
+    'body': "if __name__ == '__main__':\n    $1"
+  'Print':
+    'prefix': 'print'
+    'body': "print('$1')"
+  'Dataclass':
+    'prefix': 'dataclass'
+    'body': '@dataclass\nclass ${1:SomeClass}:\n    ${2:attr}: ${3:str}'
+  'Init':
+    'prefix': 'init'
+    'body': 'def __init__(self$1):\n    ${2:pass}'
+  'Dunder':
+    'prefix': 'dunder'
+    'body': 'def __${1:dunder}__(self$2):\n    ${3:pass}'
