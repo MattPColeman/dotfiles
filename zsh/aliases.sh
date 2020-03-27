@@ -17,3 +17,6 @@ alias gd="git diff"
 alias gcm="git checkout master"
 
 alias nix-reb="sudo nixos-rebuild switch"
+alias nix-up="sudo nixos-rebuild --upgrade switch"
+alias nix-garb="sudo nix-collect-garbage -d"
+alias nix-chan="echo System channels:&&sudo nix-channel --list && echo User channels:&&nix-channel --list"
