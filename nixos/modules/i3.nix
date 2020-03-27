@@ -27,14 +27,13 @@
     unclutter-xfixes
   ];
 
-  nixpkgs.config.packageOverrides = pkgs:
-  { lxappearance = pkgs.lxappearance.overrideAttrs(old: rec {
-      name = "lxappearance-0.6.2";
-      src = pkgs.fetchurl {
-        url = "mirror://sourceforge/project/lxde/LXAppearance/${name}.tar.xz";
-        sha256 = "07r0xbi6504zjnbpan7zrn7gi4j0kbsqqfpj8v2x94gr05p16qj4";
-      };
-    });
+
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    greeters.gtk.enable = true;
+    extraConfig=''
+      greeter-hide-users=false
+    '';
   };
 
 }

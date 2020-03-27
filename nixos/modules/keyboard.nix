@@ -19,7 +19,7 @@
   services.xserver.autoRepeatDelay = 350;
   services.xserver.autoRepeatInterval = 22;
 
-  console.keyMap = "uk";
+  i18n.consoleKeyMap = "uk";
   i18n = {
     defaultLocale = "en_US.UTF-8";
   };
