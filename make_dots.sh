@@ -33,6 +33,7 @@ else
   ln -s $DOTFILES/gitconfig $HOME/.gitconfig
 
   # i3status
+  mkdir -p $HOME/.config/i3status
   rm $HOME/.config/i3status/config
   ln -s $DOTFILES/i3status/config $HOME/.config/i3status/config
 fi
