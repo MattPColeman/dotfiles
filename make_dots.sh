@@ -21,3 +21,7 @@ ln -s $DOTFILES/nixos/hosts/MiGo.nix /etc/nixos/configuration.nix
 # Zsh
 rm $HOME/.zshrc
 ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
+
+# Git
+rm $HOME/.gitconfig
+ln -s $DOTFILES/gitconfig $HOME/.gitconfig
