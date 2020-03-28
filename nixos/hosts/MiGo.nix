@@ -30,6 +30,7 @@
       ./MiGo-hardware.nix
       ../../nixos/modules/apps.nix
       ../../nixos/modules/dev-tools.nix
+      ../../nixos/modules/terminal.nix
       ../../nixos/modules/fonts.nix
       ../../nixos/modules/games.nix
       ../../nixos/modules/i3.nix

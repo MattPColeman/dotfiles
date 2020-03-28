@@ -5,7 +5,6 @@
     xfce.thunar
     xfce.gvfs
     gvfs
-    st
     firefox
     transmission-gtk
     atom

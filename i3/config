@@ -29,7 +29,7 @@
   set $workspace9 "9: [GAME]"
   set $workspace10 "10: [MUSIC]"
 
-  set $terminal "st"
+  set $terminal "urxvt"
   set $browser "firefox"
   set $editor "atom"
   set $spotlight "rofi -show run -font \\"Iosevka 12\\" -theme .config/rofi/arc-dark"
