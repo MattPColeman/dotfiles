@@ -15,7 +15,7 @@
   # video driver
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nouveau" ];
+    videoDrivers = [ "nvidiaBeta" ];
     desktopManager.xterm.enable = false;
   };
 
