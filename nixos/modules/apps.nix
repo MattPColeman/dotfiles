@@ -3,9 +3,9 @@
 {
   environment.systemPackages = with pkgs; [
     xfce.thunar
-    xfce.terminal
     xfce.gvfs
     gvfs
+    st
     firefox
     transmission-gtk
     atom
