@@ -73,11 +73,6 @@
   bindsym $mod+h split h
   bindsym $mod+v split v
 
-  bindsym $mod+equal  gaps inner all plus 20
-  bindsym $mod+minus gaps inner all minus 20
-  bindsym $mod+Shift+equal  gaps outer all plus 20
-  bindsym $mod+Shift+minus gaps outer all minus 20
-
   bindsym $mod+1 workspace $workspace1
   bindsym $mod+2 workspace $workspace2
   bindsym $mod+3 workspace $workspace3
@@ -115,12 +110,19 @@ bar {
 client.focused              $red        $red        $grey     $grey
 client.focused_inactive     $bgpale     $bgpale     $grey     $grey
 client.unfocused            $bgpale     $bgpale     $grey     $grey
+
+##----- Borders -----##
+for_window [class="^.*"] border pixel 0
 hide_edge_borders both
 
 ##----- Gaps -----##
-Gaps inner 25
-Gaps outer 25
-for_window [class="^.*"] border pixel 0
+Gaps inner 20
+Gaps outer 0
+
+bindsym $mod+equal  gaps inner all plus 20
+bindsym $mod+minus gaps inner all minus 20
+bindsym $mod+Shift+equal  gaps outer all plus 20
+bindsym $mod+Shift+minus gaps outer all minus 20
 
 ##----- Check focus-----##
 bindsym $mod+semicolon exec i3-msg border pixel 1
