@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   # EFI / systemd boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -40,7 +42,7 @@
       ../../nixos/modules/ssh.nix
       ../../nixos/modules/themes.nix
       ../../nixos/modules/users.nix
-      ../../nixos/modules/polybar.nix
+      /* ../../nixos/modules/polybar.nix */
     ];
 
   system.stateVersion = "17.09";

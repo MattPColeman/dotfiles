@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     xfce.thunar
     xfce.terminal
@@ -20,5 +18,4 @@
     godot
     blender
   ];
-
 }
