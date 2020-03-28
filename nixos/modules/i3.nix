@@ -31,9 +31,6 @@
   services.xserver.displayManager.lightdm = {
     enable = true;
     greeters.gtk.enable = true;
-    extraConfig=''
-      greeter-hide-users=false
-    '';
   };
 
 }
