@@ -14,6 +14,8 @@ ln -s $DOTFILES/atom/snippets.cson $HOME/.atom/snippets.cson
 ln -s $DOTFILES/atom/styles.less $HOME/.atom/styles.less
 ln -s $DOTFILES/atom/packages.txt $HOME/.atom/packages.txt
 
+apm install --packages-file $HOME/.atom/packages.txt
+
 # Nixos
 rm /etc/nixos/configuration.nix
 ln -s $DOTFILES/nixos/hosts/MiGo.nix /etc/nixos/configuration.nix
