@@ -16,5 +16,6 @@
     gimp
     godot
     blender
+    neofetch
   ];
 }
