@@ -29,49 +29,56 @@
   set $workspace9 "9: [GAME]"
   set $workspace10 "10: [MUSIC]"
 
+  set $left "h"
+  set $down "j"
+  set $up "k"
+  set $right "l"
+
   set $terminal "urxvt"
   set $browser "firefox"
-  set $editor "atom"
-  set $spotlight "rofi -show run -font \\"Iosevka 12\\" -theme .config/rofi/arc-dark"
+  set $editor "emacs"
+  set $spotlight "rofi -show run"
+  set $files "urxvt --hold -e ranger"
+  set $notes "notable"
 
   ##----- Launchers -----##
   bindsym $mod+Return exec --no-startup-id $terminal
-  bindsym $mod+a exec --no-startup-id atom
-  bindsym $mod+t exec --no-startup-id thunar
-  bindsym $mod+f exec --no-startup-id GTK_THEME=Adwaita firefox
-  bindsym $mod+c exec --no-startup-id chromium
-  bindsym $mod+s exec --no-startup-id spotify
-  bindsym $mod+n exec --no-startup-id notable
   bindsym $mod+space exec --no-startup-id $spotlight
+  bindsym $mod+f exec --no-startup-id $files
+  bindsym $mod+b exec --no-startup-id $browser
+  bindsym $mod+e exec --no-startup-id $editor
+  bindsym $mod+n exec --no-startup-id $notes
+  bindsym $mod+t exec --no-startup-id thunar
+  bindsym $mod+s exec --no-startup-id spotify
 
   ##----- Autostart -----##
   exec --no-startup-id unclutter --timeout 2 --ignore-scrolling &
   exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 
 ##----- Window navigation -----##
-  bindsym $mod+q kill
+  bindsym $mod+w kill
 
-  bindsym $mod+j exec i3-msg border pixel 1; focus left
-  bindsym $mod+k exec i3-msg border pixel 1; focus down
-  bindsym $mod+i exec i3-msg border pixel 1; focus up
-  bindsym $mod+l exec i3-msg border pixel 1; focus right
-  bindsym --release $mod+j exec i3-msg border pixel 0
-  bindsym --release $mod+k exec i3-msg border pixel 0
-  bindsym --release $mod+i exec i3-msg border pixel 0
-  bindsym --release $mod+l exec i3-msg border pixel 0
+  bindsym $mod+$left exec i3-msg border pixel 1; focus left
+  bindsym $mod+$down exec i3-msg border pixel 1; focus down
+  bindsym $mod+$up exec i3-msg border pixel 1; focus up
+  bindsym $mod+$right exec i3-msg border pixel 1; focus right
+  bindsym --release $mod+$left exec i3-msg border pixel 0
+  bindsym --release $mod+$right exec i3-msg border pixel 0
+  bindsym --release $mod+$up exec i3-msg border pixel 0
+  bindsym --release $mod+$down exec i3-msg border pixel 0
 
-  bindsym $mod+Shift+j move left
-  bindsym $mod+Shift+k move down
-  bindsym $mod+Shift+i move up
-  bindsym $mod+Shift+l move right
+  bindsym $mod+Shift+$left move left
+  bindsym $mod+Shift+$down move down
+  bindsym $mod+Shift+$up move up
+  bindsym $mod+Shift+$right move right
 
-  bindsym $mod+Control+j resize shrink width 10 px or 10 ppt
-  bindsym $mod+Control+k resize grow height 10 px or 10 ppt
-  bindsym $mod+Control+i resize shrink height 10 px or 10 ppt
-  bindsym $mod+Control+l resize grow width 10 px or 10 ppt
+  bindsym $mod+Control+$left resize shrink width 10 px or 10 ppt
+  bindsym $mod+Control+$right resize grow width 10 px or 10 ppt
+  bindsym $mod+Control+$down resize shrink height 10 px or 10 ppt
+  bindsym $mod+Control+$up resize grow height 10 px or 10 ppt
 
-  bindsym $mod+h split h
-  bindsym $mod+v split v
+  bindsym $mod+x split h
+  bindsym $mod+z split v
 
   bindsym $mod+1 workspace $workspace1
   bindsym $mod+2 workspace $workspace2
