@@ -6,8 +6,10 @@
     xfce.gvfs
     gvfs
     firefox
+    thunderbird
     transmission-gtk
     atom
+    emacs
     spotify
     usbutils
     unar

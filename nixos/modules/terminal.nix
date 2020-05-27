@@ -7,7 +7,7 @@
 
   services.xserver.displayManager.sessionCommands =  ''
      xrdb "${pkgs.writeText  "xrdb.conf" ''
-        URxvt.font:                 xft:Dejavu Sans Mono for Powerline:size=11
+        URxvt.font:                 xft:Hack:size=11
         URxvt.iconFile:             /usr/share/icons/elementary/apps/24/terminal.svg
         URxvt.letterSpace:          0
         URxvt.depth:                32
@@ -49,7 +49,6 @@
         URxvt*scrollWithBuffer:     false
         URxvt*scrollstyle:          plain
         URxvt*secondaryScroll:      true
-
      ''}"
   '';
 }

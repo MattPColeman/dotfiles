@@ -5,6 +5,7 @@
     retroarch
     ckan
     steam
+    wine
     lutris
     nethack
     (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
@@ -12,6 +13,10 @@
     })
   ];
 
+  nixpkgs.config.retroarch = {
+    enableMGBA = true;
+    enableBeetlePSXHW = true;
+  };
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
 
