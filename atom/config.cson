@@ -6,10 +6,10 @@
     autoHideMenuBar: true
     disabledPackages: [
       "background-tips"
+      "vim-mode-plus"
     ]
     telemetryConsent: "no"
   editor:
-    fontSize: 13
     preferredLineLength: 120
     scrollPastEnd: true
     showInvisibles: true
@@ -27,5 +27,9 @@
     themeColor: "Blue"
   "seti-ui":
     compactView: true
+  "vim-mode-plus":
+    setCursorToStartOfChangeOnUndoRedoStrategy: "simple"
   welcome:
     showOnStartup: false
+  whitespace:
+    removeTrailingWhitespace: false

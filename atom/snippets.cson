@@ -41,3 +41,9 @@
   'Dunder':
     'prefix': 'dunder'
     'body': 'def __${1:dunder}__(self$2):\n    ${3:pass}'
+  'Pytest':
+    'prefix': 'pytest'
+    'body': "@pytest.mark.parametrize('${1}', [])\ndef test_${2:something}(${1}):\n    ${3:pass}"
+  'Class':
+    'prefix': 'class'
+    'body': "class ${1:name}(${2:Object}):\n    '${3:docstring}'\n    ${4:pass}"
