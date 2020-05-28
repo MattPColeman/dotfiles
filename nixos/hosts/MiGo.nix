@@ -23,7 +23,7 @@
 
   # Misc
   time.timeZone = "Europe/London";
-  i18n.consoleFont = "Lat2-Terminus16";
+  console.font = "Lat2-Terminus16";
 
   imports =
     [
