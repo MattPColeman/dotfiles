@@ -9,6 +9,8 @@ alias l="ls"
 alias ll="ls -Al"
 alias la="ls -A"
 
+alias c="clear"
+
 alias treee="tree -a -I '.git'"
 
 alias gst="git status"
