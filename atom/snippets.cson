@@ -47,3 +47,6 @@
   'Class':
     'prefix': 'class'
     'body': "class ${1:name}(${2:Object}):\n    '${3:docstring}'\n    ${4:pass}"
+  'FromImport':
+    'prefix': 'from'
+    'body': 'from ${1:module} import ${2:package}'
