@@ -1,3 +1,5 @@
 [user]
 	email = matt.coleman@sainsburys.co.uk
 	name = Matt Coleman
+[core]
+	editor = vim

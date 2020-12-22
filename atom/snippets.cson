@@ -14,9 +14,12 @@
     'body': 'console.log $1'
 
 '.source.python':
+  'RaiseNotImplemented':
+    'prefix': 'rnot'
+    'body': "raise NotImplementedError"
   'NotImplemented':
     'prefix': 'not'
-    'body': "raise NotImplementedError"
+    'body': "NotImplemented"
   'Log':
     'prefix': 'log'
     'body': "self.log.info(f'$1')"

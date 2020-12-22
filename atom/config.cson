@@ -1,16 +1,24 @@
 "*":
   "autocomplete-plus":
     enableAutoActivation: false
+  "autocomplete-python":
+    outputDebug: true
+    outputProviderErrors: true
+    useKite: false
   "bracket-matcher": {}
   core:
     autoHideMenuBar: true
     disabledPackages: [
       "background-tips"
+      "file-type-icons"
       "vim-mode-plus"
     ]
+    editor:
+      multiCursorOnClick: true
     telemetryConsent: "no"
+    useTreeSitterParsers: false
   editor:
-    fontSize: 12
+    fontSize: 15
     preferredLineLength: 120
     scrollPastEnd: true
     showInvisibles: true
@@ -18,9 +26,12 @@
     userId: "7ef383a4-a920-41bb-a00c-289200831fcf"
   "git-blame":
     columnWidth: 323
+  kite:
+    showWelcomeNotificationOnStartup: false
   "linter-terraform-syntax":
     checkRequiredVar: false
     newVersion: true
+  "linter-ui-default": {}
   "python-black":
     lineLength: 120
   "seti-syntax":
@@ -28,6 +39,8 @@
     themeColor: "Blue"
   "seti-ui":
     compactView: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "vim-mode-plus":
     setCursorToStartOfChangeOnUndoRedoStrategy: "simple"
   welcome:

@@ -25,3 +25,16 @@ alias nix-chan="echo System channels:&&sudo nix-channel --list && echo User chan
 
 alias gs="cd ~/dev/aspire-supply-chain"
 alias gh="cd ~"
+alias gt="cd ~/Templates"
+alias gd="cd ~/dev"
+mdc ()
+{
+  mkdir -p -- "$1" &&
+  cd -P -- "$1"
+}
+
+template ()
+{
+  cp ~/Templates/"$1"/* . &&
+  nix-shell
+}

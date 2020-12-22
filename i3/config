@@ -36,7 +36,7 @@
 
   set $terminal "urxvt"
   set $browser "firefox"
-  set $editor "emacs"
+  set $editor "atom"
   set $spotlight "rofi -show run"
   set $files "urxvt --hold -e ranger"
   set $notes "notable"
