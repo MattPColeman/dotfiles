@@ -48,4 +48,11 @@
 
   system.stateVersion = "17.09";
 
+   nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+   };
+
 }
