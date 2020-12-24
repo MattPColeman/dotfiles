@@ -25,10 +25,9 @@
   time.timeZone = "Europe/London";
   console.font = "Lat2-Terminus16";
 
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
   imports =
     [
+      ../../nixos/modules/flatpak.nix
       ../../nixos/modules/apps.nix
       ../../nixos/modules/dev-tools.nix
       ../../nixos/modules/terminal.nix
