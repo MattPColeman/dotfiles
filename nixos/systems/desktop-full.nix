@@ -29,7 +29,6 @@
   xdg.portal.enable = true;
   imports =
     [
-      ./MiGo-hardware.nix
       ../../nixos/modules/apps.nix
       ../../nixos/modules/dev-tools.nix
       ../../nixos/modules/terminal.nix

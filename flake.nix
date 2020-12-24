@@ -8,9 +8,9 @@
 
   outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ... }: {
 
-    nixosConfigurations.migo = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.migo-desktop-full = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./nixos/hosts/MiGo.nix ];
+      modules = [ ./nixos/hardware/MiGo.nix ./nixos/systems/desktop-full.nix ];
       specialArgs = { inherit inputs; };
     };
 
