@@ -4,9 +4,8 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    ];
+  /* This is impure, which makes the flake sad. I don't know the consequences of ignoring it. */
+  /* imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ]; */
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
