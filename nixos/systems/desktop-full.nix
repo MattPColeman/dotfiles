@@ -1,30 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
-
-  # EFI / systemd boot
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # audio driver
-  sound.enable = true;
-  hardware.pulseaudio={
-    enable = true;
-    configFile = ../../pulseaudio/config;
-  };
-
-  # video driver
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "nvidia" ];
-    desktopManager.xterm.enable = false;
-  };
-
-  # Misc
-  time.timeZone = "Europe/London";
-  console.font = "Lat2-Terminus16";
-
   imports =
     [
       ../../nixos/modules/flatpak.nix
@@ -42,15 +18,10 @@
       ../../nixos/modules/ssh.nix
       ../../nixos/modules/themes.nix
       ../../nixos/modules/users.nix
+      ../../nixos/modules/nix.nix
+      ../../nixos/modules/personal.nix
+      ../../nixos/modules/efi.nix
+      ../../nixos/modules/nvidia.nix
+      ../../nixos/modules/pulseaudio.nix
     ];
-
-  system.stateVersion = "17.09";
-
-   nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-   };
-
 }
