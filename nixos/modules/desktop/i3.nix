@@ -3,7 +3,7 @@
 {
   services.xserver.windowManager.i3 = {
     enable=true;
-    configFile=../../i3/config;
+    configFile=../../../i3/config;
     package = pkgs.i3-gaps;
     extraPackages = with pkgs; [ i3status i3lock ];
   };
@@ -26,7 +26,6 @@
     rofi
     unclutter-xfixes
   ];
-
 
   services.xserver.displayManager.lightdm = {
     enable = true;

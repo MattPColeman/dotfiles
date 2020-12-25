@@ -12,6 +12,8 @@
     wget
     parted
     gnumake
+    neofetch
+    ncdu
   ];
   
   environment.shellAliases = {
