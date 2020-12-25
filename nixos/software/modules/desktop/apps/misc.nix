@@ -2,9 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    transmission-gtk
     usbutils
     unar
     filezilla
   ];
+
+  networking.networkmanager.enable = true;
 }

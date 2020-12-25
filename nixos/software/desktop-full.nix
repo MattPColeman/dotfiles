@@ -11,7 +11,6 @@
       ../../nixos/software/modules/users.nix
       ../../nixos/software/modules/nix.nix
       ../../nixos/software/modules/personal.nix
-      ../../nixos/software/modules/efi.nix
 
       ../../nixos/software/modules/desktop/i3.nix
       ../../nixos/software/modules/desktop/apps/blender.nix
@@ -32,12 +31,6 @@
       ../../nixos/software/modules/desktop/games/misc.nix
       ../../nixos/software/modules/desktop/games/steam.nix
       ../../nixos/software/modules/desktop/terms/urxvt.nix
-
-      ../../nixos/software/modules/hardware/keyboard.nix
-      ../../nixos/software/modules/hardware/mount.nix
-      ../../nixos/software/modules/hardware/networking.nix
-      ../../nixos/software/modules/hardware/nvidia.nix
-      ../../nixos/software/modules/hardware/pulseaudio.nix
 
       ../../nixos/software/modules/dev/docker.nix
       ../../nixos/software/modules/dev/git.nix

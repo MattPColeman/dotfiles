@@ -21,4 +21,13 @@
 
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+  imports =
+    [
+      ./drivers/ducky.nix
+      ./drivers/efi.nix
+      ./drivers/nvidia.nix
+      ./drivers/pulseaudio.nix
+      ./drivers/volumes.nix
+    ];
 }

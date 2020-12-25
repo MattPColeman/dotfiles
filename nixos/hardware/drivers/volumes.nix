@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     exfat
     ntfs3g
-    efibootmgr
   ];
 
   fileSystems."/data" =
