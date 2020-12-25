@@ -21,10 +21,10 @@
 
   imports =
     [
-      ./drivers/ducky.nix
-      ./drivers/efi.nix
       ./drivers/nvidia.nix
       ./drivers/pulseaudio.nix
-      ./drivers/volumes.nix
+      ./interfaces/ducky.nix
+      ./interfaces/efi.nix
+      ./interfaces/volumes.nix
     ];
 }
