@@ -9,9 +9,6 @@
       ../../nixos/modules/fonts.nix
       ../../nixos/modules/games.nix
       ../../nixos/modules/i3.nix
-      ../../nixos/modules/keyboard.nix
-      ../../nixos/modules/mount.nix
-      ../../nixos/modules/networking.nix
       ../../nixos/modules/power-management.nix
       ../../nixos/modules/ssh.nix
       ../../nixos/modules/themes.nix
@@ -19,8 +16,13 @@
       ../../nixos/modules/nix.nix
       ../../nixos/modules/personal.nix
       ../../nixos/modules/efi.nix
-      ../../nixos/modules/nvidia.nix
-      ../../nixos/modules/pulseaudio.nix
+
+      ../../nixos/modules/hardware/keyboard.nix
+      ../../nixos/modules/hardware/mount.nix
+      ../../nixos/modules/hardware/networking.nix
+      ../../nixos/modules/hardware/nvidia.nix
+      ../../nixos/modules/hardware/pulseaudio.nix
+
       ../../nixos/modules/dev/docker.nix
       ../../nixos/modules/dev/git.nix
       ../../nixos/modules/dev/go.nix
