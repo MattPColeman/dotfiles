@@ -23,4 +23,6 @@
    virtualisation.virtualbox.guest.enable = true;
 
    system.stateVersion = "20.09";
+
+   services.xserver.enable = true;
  }
