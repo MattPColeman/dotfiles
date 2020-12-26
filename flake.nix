@@ -14,5 +14,11 @@
       specialArgs = { inherit inputs; };
     };
 
+    nixosConfigurations.dagon-desktop-mini = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./hosts/Dagon.nix ./profiles/desktop-mini.nix ];
+      specialArgs = { inherit inputs; };
+    };
+
   };
 }
