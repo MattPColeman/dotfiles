@@ -4,6 +4,6 @@
   sound.enable = true;
   hardware.pulseaudio={
     enable = true;
-    configFile = ../../../pulseaudio/config;
+    configFile = ../../config/pulseaudio/config;
   };
 }

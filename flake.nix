@@ -10,7 +10,7 @@
 
     nixosConfigurations.migo-desktop-full = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./nixos/hosts/MiGo.nix ./nixos/profiles/desktop-full.nix ];
+      modules = [ ./hosts/MiGo.nix ./profiles/desktop-full.nix ];
       specialArgs = { inherit inputs; };
     };
 
