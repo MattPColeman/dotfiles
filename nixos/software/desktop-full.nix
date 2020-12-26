@@ -3,10 +3,11 @@
 {
   imports =
     [
-      ../../nixos/software/modules/ssh.nix
-      ../../nixos/software/modules/themes.nix
-      ../../nixos/software/modules/users.nix
-      ../../nixos/software/modules/personal.nix
+      ../../nixos/software/modules/themes/icons.nix
+
+      ../../nixos/software/modules/config/ssh.nix
+      ../../nixos/software/modules/config/users.nix
+      ../../nixos/software/modules/config/locale.nix
 
       ../../nixos/software/modules/desktop/i3.nix
       ../../nixos/software/modules/desktop/apps/blender.nix
