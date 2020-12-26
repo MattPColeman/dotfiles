@@ -27,4 +27,6 @@
       ./interfaces/efi.nix
       ./interfaces/volumes.nix
     ];
+
+    system.stateVersion = "17.09";
 }
