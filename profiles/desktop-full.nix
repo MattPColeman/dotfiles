@@ -10,6 +10,7 @@
       ../modules/config/locale.nix
 
       ../modules/desktop/i3.nix
+      ../modules/desktop/compton.nix
       ../modules/desktop/apps/blender.nix
       ../modules/desktop/apps/firefox.nix
       ../modules/desktop/apps/gimp.nix
