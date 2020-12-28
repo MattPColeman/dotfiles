@@ -1,4 +1,4 @@
-{ self, config, lib }:
+{ self, config, lib, ... }:
 
 with lib;
 with types;
