@@ -1,9 +1,11 @@
-{ self, lib, ... }:
+{ self, config, options }:
 
+with lib;
+with types;
 {
   options = {
-    local = lib.mkOption {
-      type = types.attrs;
+    local = mkOption {
+      type = attrs;
       description = "Local variables.";
     };
   };
