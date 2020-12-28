@@ -12,13 +12,21 @@
 
     nixosConfigurations.migo-desktop-full = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./hosts/MiGo.nix ./profiles/desktop-full.nix home-manager.nixosModules.home-manager ];
+      modules = [
+        home-manager.nixosModules.home-manager
+        ./hosts/MiGo.nix
+        ./profiles/desktop-full.nix
+      ];
       specialArgs = { inherit inputs; };
     };
 
     nixosConfigurations.dagon-desktop-mini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./hosts/Dagon.nix ./profiles/desktop-mini.nix home-manager.nixosModules.home-manager ];
+      modules = [
+        home-manager.nixosModules.home-manager
+        ./hosts/Dagon.nix
+        ./profiles/desktop-mini.nix
+      ];
       specialArgs = { inherit inputs; };
     };
 
