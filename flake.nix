@@ -8,17 +8,17 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ... }: {
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
 
     nixosConfigurations.migo-desktop-full = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./hosts/MiGo.nix ./profiles/desktop-full.nix ];
+      modules = [ ./hosts/MiGo.nix ./profiles/desktop-full.nix home-manager.nixosModules.home-manager ];
       specialArgs = { inherit inputs; };
     };
 
     nixosConfigurations.dagon-desktop-mini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./hosts/Dagon.nix ./profiles/desktop-mini.nix ];
+      modules = [ ./hosts/Dagon.nix ./profiles/desktop-mini.nix home-manager.nixosModules.home-manager ];
       specialArgs = { inherit inputs; };
     };
 

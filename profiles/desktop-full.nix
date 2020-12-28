@@ -9,6 +9,8 @@
       ../modules/config/users.nix
       ../modules/config/locale.nix
       ../modules/config/paths.nix
+      /* ../modules/config/xdg.nix */
+      ../modules/config/options.nix
 
       ../modules/desktop/i3.nix
       ../modules/desktop/compton.nix

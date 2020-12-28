@@ -1,15 +1,6 @@
-{ self, config, lib, ... }:
+{ self, config, ... }:
 
-with lib;
-with types;
 {
-  options = {
-    local = lib.mkOption {
-      type = types.attrs;
-      description = "Local variables.";
-    };
-  };
-
   config = {
     local = rec {
       dotfilesDir = toString ../../.;

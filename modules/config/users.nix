@@ -1,9 +1,11 @@
-{config, pkgs, ...}:
+{ config, ... }:
 
+with config;
 {
-  users.extraUsers.matt = {
+  local.username = "matt";
+  users.extraUsers.${local.username} = {
     isNormalUser = true;
-    home="/home/matt";
+    home="/home/${local.username}";
     extraGroups = ["wheel" "networkmanager" "input" "audio" "docker"];
     uid = 1000;
   };
