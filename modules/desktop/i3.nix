@@ -3,7 +3,7 @@
 {
   services.xserver.windowManager.i3 = {
     enable=true;
-    configFile=../../config/i3/config;
+    configFile="${lib.configDir}/i3/config";
     package = pkgs.i3-gaps;
     extraPackages = with pkgs; [ i3status i3lock ];
   };

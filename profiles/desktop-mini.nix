@@ -6,6 +6,7 @@
       ../modules/config/ssh.nix
       ../modules/config/users.nix
       ../modules/config/locale.nix
+      ../modules/config/paths.nix
 
       ../modules/desktop/i3.nix
       ../modules/desktop/apps/firefox.nix
