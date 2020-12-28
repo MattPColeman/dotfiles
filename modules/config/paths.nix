@@ -1,11 +1,9 @@
 { self, lib, ... }:
 
-with lib;
-with types;
 {
   options = {
-    local = mkOption {
-      type = attrs;
+    local = lib.mkOption {
+      type = types.attrs;
       description = "Local variables.";
     };
   };
@@ -13,7 +11,11 @@ with types;
   config = {
     local = rec {
       dotfilesDir = toString ../../.;
+      binDir      = "${dotfilesDir}/bin";
       configDir   = "${dotfilesDir}/config";
+      hostsDir    = "${dotfilesDir}/hosts";
+      modulesDir  = "${dotfilesDir}/modules";
+      profilesDir = "${dotfilesDir}/profiles";
     };
   };
 }
