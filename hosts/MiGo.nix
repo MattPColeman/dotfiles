@@ -28,5 +28,5 @@
       ./interfaces/volumes.nix
     ];
 
-    system.stateVersion = "17.09";
+    system.stateVersion = "20.09";
 }
