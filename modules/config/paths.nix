@@ -2,8 +2,8 @@
 
 {
   options = {
-    local = mkOption {
-      type = attrs;
+    local = lib.mkOption {
+      type = types.attrs;
       description = "Local variables.";
     };
   };
