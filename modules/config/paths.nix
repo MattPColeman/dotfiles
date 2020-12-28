@@ -10,8 +10,8 @@ with types;
     };
   };
 
-  config = rec {
-    local = {
+  config = {
+    local = rec {
       dotfilesDir = toString ../../.;
       configDir   = "${dotfilesDir}/config";
     };
