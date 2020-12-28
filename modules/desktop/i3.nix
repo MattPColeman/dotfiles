@@ -21,4 +21,6 @@ with config.local;
     greeters.gtk.enable = true;
   };
 
+  services.xserver.desktopManager.xterm.enable = false;
+
 }
