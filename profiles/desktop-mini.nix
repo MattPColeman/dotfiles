@@ -9,6 +9,7 @@
       ../modules/config/paths.nix
       ../modules/config/xdg.nix
       ../modules/config/options.nix
+      ../modules/config/home-manager.nix
 
       ../modules/desktop/i3.nix
       ../modules/desktop/apps/firefox.nix
