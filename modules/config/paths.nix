@@ -1,7 +1,5 @@
-{ self, config, options }:
+{ self, config, options, lib, types }:
 
-with lib;
-with types;
 {
   options = {
     local = mkOption {
