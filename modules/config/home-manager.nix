@@ -1,7 +1,11 @@
 { home-manager, config, ... }:
+
 {
-  home-manager = {
+  home-manager = with config; {
     useUserPackages = true;
-    users.${config.local.username}.home.stateVersion = config.system.stateVersion;
+    users.${local.username} = {
+      xdg.enable = true;
+      home.stateVersion = system.stateVersion;
+    };
   };
 }
