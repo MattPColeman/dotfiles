@@ -6,10 +6,5 @@
     home="/home/matt";
     extraGroups = ["wheel" "networkmanager" "input" "audio" "docker"];
     uid = 1000;
-};
-
-  # Fix this
-  security.sudo.configFile = ''
-     matt ALL=(ALL) NOPASSWD: ALL
-  '';
+  };
 }
