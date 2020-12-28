@@ -1,7 +1,19 @@
 { self, lib, ... }:
 
 with lib;
-rec {
-  dotfilesDir = toString ../../.;
-  configDir   = "${dotfilesDir}/config";
+with types;
+{
+  options = {
+    local = mkOption {
+      type = attrs;
+      description = "Local variables.";
+    };
+  };
+
+  config = {
+    local = {
+      dotfilesDir = toString ../../.;
+      configDir   = "${dotfilesDir}/config";
+    };
+  };
 }

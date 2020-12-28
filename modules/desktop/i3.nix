@@ -1,9 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
+with config.local;
 {
   services.xserver.windowManager.i3 = {
     enable=true;
-    configFile="${lib.configDir}/i3/config";
+    configFile="${configDir}/i3/config";
     package = pkgs.i3-gaps;
     extraPackages = with pkgs; [ i3status i3lock ];
   };
