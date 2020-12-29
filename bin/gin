@@ -1,0 +1,45 @@
+#!/usr/bin/env zsh
+
+LOCAL="$HOME/.config/dotfiles"
+REMOTE="https://github.com/MattPColeman/dotfiles.git"
+HOST="${CURRENT_SYSTEM_HOST:-migo}"
+PROFILE="${CURRENT_SYSTEM_PROFILE:-desktop-full}"
+
+function main {
+
+  if [[ $* == *--remote* ]]; then
+    REPO="github:MattPColeman"
+  elif [[ $* == *--local* ]]; then
+    REPO=$LOCAL
+  else REPO=$LOCAL fi
+
+  function _dump {
+    echo "Config:"
+    echo "  LOCAL    Local repository, may not (yet) exist.                     \"$LOCAL\""
+    echo "  REMOTE   Remote repo containing this flake.                         \"$REMOTE\""
+    echo "  REPO     Source used for rebuild commands.                          \"$REPO\""
+    echo "  HOST     Hostname to target (\$CURRENT_SYSTEM_HOST:migo)             \"$HOST\""
+    echo "  PROFILE  Profile to target (\$CURRENT_SYSTEM_PROFILE:desktop-full)   \"$PROFILE\""
+  }
+
+  function _fetch {
+    if [[ ! -a $LOCAL ]]; then git clone $REMOTE $LOCAL
+    elif [[ ! -a $LOCAL/flake.nix ]]; then echo Error: $LOCAL already exists, but is not a flake! && exit 1
+    fi
+  }
+
+  function _rebuild {
+    nixos-rebuild switch --flake ${REPO}#${HOST}-${PROFILE}
+  }
+
+  cmd="$1"
+  [[ $# > 0 ]] && shift
+  case "$cmd" in
+    clone)      _fetch   ;;
+    rebuild|re) _rebuild ;;
+    help|h)     _dump    ;;
+  esac
+
+}
+
+main "$@"
