@@ -53,7 +53,7 @@
 
   ##----- Autostart -----##
   exec --no-startup-id unclutter --timeout 2 --ignore-scrolling &
-  exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+  exec_always feh --bg-scale --no-fehbg ~/Pictures/wallpaper.jpg
 
 ##----- Window navigation -----##
   bindsym $mod+w kill
