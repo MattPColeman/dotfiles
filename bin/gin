@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-LOCAL="$HOME/.config/dotfiles"
+LOCAL="/home/matt/.config/dotfiles"
 REMOTE="https://github.com/MattPColeman/dotfiles.git"
 HOST="${CURRENT_SYSTEM_HOST:-migo}"
 PROFILE="${CURRENT_SYSTEM_PROFILE:-desktop-full}"
