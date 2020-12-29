@@ -3,3 +3,5 @@
 	name = Matt Coleman
 [core]
 	editor = vim
+[pull]
+	rebase = false
