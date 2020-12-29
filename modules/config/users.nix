@@ -1,13 +1,12 @@
 { config, home-manager, lib, options, ... }:
 
-with config;
-{
+with config; {
   local.username = "matt";
 
   users.extraUsers.${local.username} = {
     isNormalUser = true;
-    home="/home/${local.username}";
-    extraGroups = ["wheel" "networkmanager" "input" "audio" "docker"];
+    home = "/home/${local.username}";
+    extraGroups = [ "wheel" "networkmanager" "input" "audio" "docker" ];
     uid = 1000;
   };
 
@@ -21,14 +20,14 @@ with config;
       xdg = {
         enable = true;
         configFile = mkAliasDefinitions options.home.configFile;
-        dataFile   = mkAliasDefinitions options.home.dataFile;
+        dataFile = mkAliasDefinitions options.home.dataFile;
       };
     };
   };
   environment.sessionVariables = {
     XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_CACHE_HOME  = "$HOME/.cache";
-    XDG_DATA_HOME   = "$HOME/.local/share";
-    XDG_BIN_HOME    = "$HOME/.local/bin";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_BIN_HOME = "$HOME/.local/bin";
   };
 }

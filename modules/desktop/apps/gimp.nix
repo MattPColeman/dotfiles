@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    gimp
-  ];
+  environment.systemPackages = with pkgs; [ gimp ];
 }

@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    blender
-  ];
+  environment.systemPackages = with pkgs; [ blender ];
 }

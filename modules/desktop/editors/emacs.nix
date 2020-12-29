@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    emacs
-  ];
+  environment.systemPackages = with pkgs; [ emacs ];
 }

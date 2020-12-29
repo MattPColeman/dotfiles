@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
 
-with config.local;
-{
+with config.local; {
   sound.enable = true;
-  hardware.pulseaudio={
+  hardware.pulseaudio = {
     enable = true;
     configFile = "${configDir}/pulseaudio/config";
   };

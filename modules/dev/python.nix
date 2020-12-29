@@ -7,10 +7,10 @@
     python38Full
     python39Full
   ];
-  
+
   environment.shellAliases = {
-    py      = "python3.9";
-    python  = "python3.9";
+    py = "python3.9";
+    python = "python3.9";
     python2 = "python2.7";
     python3 = "python3.9";
   };

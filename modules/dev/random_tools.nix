@@ -11,7 +11,5 @@
     ncdu
   ];
 
-  environment.shellAliases = {
-    treee = "tree -a -I '.git'";
-  };
+  environment.shellAliases = { treee = "tree -a -I '.git'"; };
 }

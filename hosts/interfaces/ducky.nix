@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [ xorg.xmodmap ];
-  
+
   # For the following keycodes, dipswitches are:
   #  1 ON
   #  2 OFF
@@ -23,14 +23,10 @@
     xmodmap -e "clear mod4"
     xmodmap -e "add mod4 = Super_L"
     xmodmap -e "keycode 134 = Down"
-    
+
   '';
 
   console.keyMap = "uk";
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
-  services.xserver = {
-    layout = "gb";
-  };
+  i18n = { defaultLocale = "en_US.UTF-8"; };
+  services.xserver = { layout = "gb"; };
 }

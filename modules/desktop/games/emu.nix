@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    retroarch
-  ];
+  environment.systemPackages = with pkgs; [ retroarch ];
 
   nixpkgs.config.retroarch = {
     enableMGBA = true;

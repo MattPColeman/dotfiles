@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    polybarFull
-  ];
+  environment.systemPackages = with pkgs; [ polybarFull ];
 }

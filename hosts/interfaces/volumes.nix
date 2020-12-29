@@ -1,18 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    exfat
-    ntfs3g
-  ];
+  environment.systemPackages = with pkgs; [ exfat ntfs3g ];
 
-  fileSystems."/data" =
-  { device = "/dev/disk/by-uuid/3335d971-c264-4658-b012-94425b29852b";
+  fileSystems."/data" = {
+    device = "/dev/disk/by-uuid/3335d971-c264-4658-b012-94425b29852b";
     fsType = "ext4";
   };
 
-  fileSystems."/boot" =
-  { device = "/dev/disk/by-label/EFI";
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/EFI";
     fsType = "vfat";
   };
 }

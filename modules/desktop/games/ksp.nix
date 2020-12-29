@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    ckan
-  ];
+  environment.systemPackages = with pkgs; [ ckan ];
 }
