@@ -4,7 +4,6 @@ with config.local;
 {
   services.xserver.windowManager.i3 = {
     enable=true;
-    configFile="${configDir}/i3/config";
     package = pkgs.i3-gaps;
     extraPackages = with pkgs; [ i3status i3lock ];
   };
@@ -22,5 +21,9 @@ with config.local;
   };
 
   services.xserver.desktopManager.xterm.enable = false;
+
+  home.configFile = with config.local; {
+    "i3/config".source = "${configDir}/i3/config";
+  };
 
 }
