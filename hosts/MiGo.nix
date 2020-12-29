@@ -29,4 +29,6 @@
   ];
 
   system.stateVersion = "20.09";
+
+  environment.variables.CURRENT_SYSTEM_HOST = "migo";
 }

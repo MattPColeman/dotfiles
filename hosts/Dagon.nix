@@ -28,4 +28,6 @@
   system.stateVersion = "20.09";
 
   services.xserver.enable = true;
+
+  environment.variables.CURRENT_SYSTEM_HOST = "dagon";
 }

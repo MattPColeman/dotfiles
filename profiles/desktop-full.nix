@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-full";
   imports = [
     ../modules/themes/icons.nix
 

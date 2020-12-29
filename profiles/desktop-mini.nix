@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-mini";
   imports = [
     ../modules/config/ssh.nix
     ../modules/config/users.nix
