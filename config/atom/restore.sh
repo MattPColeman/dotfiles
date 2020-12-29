@@ -1,3 +1,3 @@
 #!/bin/sh
 
-apm install --packages-file $DOTFILES/atom/packages.txt
+apm install --packages-file $ATOM_HOME/packages.txt

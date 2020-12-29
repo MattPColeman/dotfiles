@@ -1,3 +1,3 @@
 #!/bin/sh
 
-apm list --installed --bare > $DOTFILES/atom/packages.txt
+apm list --installed --bare > $ATOM_HOME/packages.txt
