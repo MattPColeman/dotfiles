@@ -1,1 +1,3 @@
 openvpn/
+.zcompdump*
+.zsh_history
