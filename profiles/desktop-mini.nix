@@ -23,5 +23,6 @@
 
       ../modules/dev/git.nix
       ../modules/dev/shell.nix
+      ../modules/dev/random_tools.nix
     ];
 }

@@ -45,6 +45,7 @@
       ../modules/dev/python.nix
       ../modules/dev/R.nix
       ../modules/dev/shell.nix
+      ../modules/dev/random_tools.nix
       ../modules/dev/terraform.nix
     ];
 }

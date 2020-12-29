@@ -7,5 +7,10 @@ with lib;
       type = attrs;
       description = "Local variables.";
     };
+    home = {
+      file       = mkOption { type = attrs; };
+      configFile = mkOption { type = attrs; };
+      dataFile   = mkOption { type = attrs; };
+    };
   };
 }
