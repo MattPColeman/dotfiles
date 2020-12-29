@@ -23,7 +23,8 @@ with config.local;
   services.xserver.desktopManager.xterm.enable = false;
 
   home.configFile = with config.local; {
-    "i3/config".source = "${configDir}/i3/config";
+    "i3/config".source       = "${configDir}/i3/config";
+    "i3status/config".source = "${configDir}/i3status/config";
   };
 
 }
