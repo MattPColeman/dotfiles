@@ -7,5 +7,5 @@
     python38Full
     python39Full
   ];
-  modules.shell.zsh.aliasFiles = [ "${config.local.configDir}/python/aliases.zsh" ];
+  modules.shell.zsh.aliasFiles = [ "${config.local.configDir}/python/aliases.sh" ];
 }
