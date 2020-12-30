@@ -2,10 +2,7 @@
 
 with lib; {
   options = with types; {
-    local = mkOption {
-      type = attrs;
-      description = "Local variables.";
-    };
+    local = mkOption { type = attrs; };
     home = {
       file = mkOption { type = attrs; };
       configFile = mkOption { type = attrs; };
