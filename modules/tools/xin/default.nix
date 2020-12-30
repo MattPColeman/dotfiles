@@ -6,6 +6,12 @@ let
     version = "0.0.1";
     src = ./.;
 
+    propagatedBuildInputs = with pkgs; [
+      python3
+      python3Packages.click
+      python3Packages.gitpython
+    ];
+
     installPhase = ''
       mkdir -p $out/bin
       cp main.py $out/bin/xin
