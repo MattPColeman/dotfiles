@@ -5,7 +5,7 @@ let
   isNixSubmodule = f:
     f != "default.nix" &&
     substring 0 1 f != "_" &&
-    substring (stringLength fn - 4) (stringLength fn) f != ".nix";
+    substring (stringLength f - 4) (stringLength f) f != ".nix";
   submodulesInDir = dir: filter isNixSubmodule (attrNames (readDir ./.));
 in
 {
