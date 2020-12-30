@@ -1,19 +1,13 @@
 { options, config, lib, ... }:
 
-with lib; let
-  mapFilterAttrs = pred: f: attrs: filterAttrs pred (mapAttrs' f attrs);
-in
-with lib; let
-  modulesInDir = dir:
-    mapFilterAttrs
-      (n: v: v != null && !(hasPrefix "_" n))
-      (n: v:
-        let path = "${toString dir}/${n}"; in
-        if v == "regular" && n != "default.nix" && hasSuffix ".nix" n
-          then nameValuePair (removeSuffix ".nix" n) (path)
-        else nameValuePair "" null)
-      (readDir dir);
+with builtins; with lib; with types;
+let
+  isNixSubmodule = f:
+    f != "default.nix" &&
+    substring 0 1 f != "_" &&
+    substring (stringLength fn - 4) (stringLength fn) f != ".nix";
+  submodulesInDir = dir: filter isNixSubmodule (attrNames (readDir ./.));
 in
 {
-  imports = [ modulesInDir ./. ];
+  imports = [ submodulesInDir ./. ];
 }
