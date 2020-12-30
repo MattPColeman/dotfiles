@@ -1,7 +1,7 @@
-{ options, config, ... }:
+{ options, config, lib, ... }:
 
 let
-  mapFilterAttrs = pred: f: attrs: filterAttrs pred (mapAttrs' f attrs);
+  mapFilterAttrs = pred: f: attrs: lib.filterAttrs pred (mapAttrs' f attrs);
 in
 let
   modulesInDir = dir:
