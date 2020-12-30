@@ -2,7 +2,7 @@
 
 {
   options = {
-    modules.shells.zsh = with lib.types; {
+    modules.shell.zsh = with lib.types; {
       enable = lib.mkOption { type = bool; default = true; };
       aliasFiles = lib.mkOption { type = (listOf (either str path)); default = []; };
       envFiles = lib.mkOption { type = (listOf (either str path)); default = []; };
