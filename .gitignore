@@ -1,3 +1,5 @@
 openvpn/
 .zcompdump*
 .zsh_history
+*/zsh/extra_aliases.sh
+*/zsh/extra_environment.sh
