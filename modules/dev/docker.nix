@@ -3,9 +3,5 @@
 {
   environment.systemPackages = with pkgs; [ docker ];
   virtualisation.docker.enable = true;
-  environment.shellAliases = {
-    dk = "docker kill";
-    dps = "docker ps";
-    dka = "echo Killing containers:&& docker ps -q | xargs docker kill";
-  };
+  modules.shell.zsh.aliasFiles = [ "${config.local.configDir}/docker/aliases.zsh" ];
 }

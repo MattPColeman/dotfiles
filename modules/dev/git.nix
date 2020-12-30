@@ -1,8 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ git ];
-  home.configFile = with config.local; {
-    "git/config".source = "${configDir}/git/config";
-  };
+  environment.systemPackages = [ pkgs.git ];
+  home.configFile."git/config".source = "${config.local.configDir}/git/config";
+  modules.shell.zsh.aliasFiles = [ "${config.local.configDir}/git/aliases.zsh" ];
 }
