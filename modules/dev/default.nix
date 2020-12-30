@@ -15,5 +15,5 @@ with lib; let
       (readDir dir);
 in
 {
-  imports = [ subModules ./. ];
+  imports = [ modulesInDir ./. ];
 }
