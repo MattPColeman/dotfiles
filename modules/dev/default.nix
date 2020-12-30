@@ -10,5 +10,5 @@ let
   submodulesInDir = dir: path (filter isNixSubmodule (attrNames (readDir dir)));
 in
 {
-  imports = submodulesInDir ./.;
+  imports = (submodulesInDir ./.);
 }
