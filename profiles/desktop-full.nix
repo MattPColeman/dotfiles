@@ -3,7 +3,6 @@
 {
   config = {
     environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-full";
-    modules.shell.zsh.enable = true;
   };
 
   imports = [
