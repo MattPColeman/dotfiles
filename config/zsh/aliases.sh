@@ -1,13 +1,17 @@
-alias nix-reb="sudo nixos-rebuild switch"
-alias nix-up="sudo nixos-rebuild --upgrade switch"
-alias nix-garb="sudo nix-collect-garbage -d"
-alias nix-chan="echo System channels:&&sudo nix-channel --list && echo User channels:&&nix-channel --list"
+# Common aliases go here
 
+alias ls="ls --color=auto"
+alias l="ls --color=auto"
+alias ll="ls -Al"
+alias la="ls -A"
+alias lla="ls -lA"
+alias lal="ls -Al"
+
+alias c="clear"
+alias cl="clear"
 alias cdd="cd ~/dev"
-alias gs="cd ~/dev/aspire-supply-chain"
-alias gh="cd ~"
-alias gt="cd ~/Templates"
-alias gd="cd ~/dev"
+
+alias treee="tree -a -I '.git'"
 
 mdc ()
 {
@@ -20,3 +24,5 @@ template ()
   cp ~/Templates/"$1"/* . &&
   nix-shell
 }
+
+source $ZDOTDIR/extra_aliases.sh

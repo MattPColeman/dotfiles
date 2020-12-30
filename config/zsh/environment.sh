@@ -1,2 +1,3 @@
-export DAGSTER_HOME=$HOME/dagster
-export AIRFLOW_HOME=$HOME/airflow
+# Common env vars go here
+
+source $ZDOTDIR/extra_environment.sh
