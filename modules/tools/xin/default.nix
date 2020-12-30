@@ -7,9 +7,9 @@ let
     src = ./.;
 
     propagatedBuildInputs = with pkgs; [
-      python38
-      python38Packages.click
-      python38Packages.GitPython
+      python3
+      python3Packages.click
+      python3Packages.GitPython
     ];
 
     installPhase = ''
