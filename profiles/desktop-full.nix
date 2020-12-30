@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-full";
+  config = {
+    environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-full";
+    modules.shells.zsh.enable = true;
+  };
   imports = [
     ../modules/themes/icons.nix
 

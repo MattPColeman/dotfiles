@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-mini";
+  config = {
+    environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-mini";
+    modules.shells.zsh.enable = true;
+  };
+
   imports = [
     ../modules/config/ssh.nix
     ../modules/config/users.nix
