@@ -9,7 +9,7 @@
     };
   };
 
-  config = lib.mkIf config.modules.shells.zsh.enable {
+  config = lib.mkIf config.modules.shell.zsh.enable {
     users.defaultUserShell = pkgs.zsh;
     environment.systemPackages = [ pkgs.zsh ];
 
