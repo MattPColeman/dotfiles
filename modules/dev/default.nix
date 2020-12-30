@@ -10,5 +10,5 @@ let
   submodulesInDir = dir: map (path dir) (filter isNixSubmodule (attrNames (readDir dir)));
 in
 {
-  imports = submodulesInDir ./.config/dotfiles/modules/dev;
+  imports = submodulesInDir ./.;
 }
