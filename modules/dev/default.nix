@@ -1,10 +1,9 @@
 { options, config, lib, ... }:
 
-with lib;
-let
+with lib; let
   mapFilterAttrs = pred: f: attrs: filterAttrs pred (mapAttrs' f attrs);
 in
-let
+with lib; let
   modulesInDir = dir:
     mapFilterAttrs
       (n: v: v != null && !(hasPrefix "_" n))
