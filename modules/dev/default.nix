@@ -1,7 +1,10 @@
 { options, config, ... }:
 
 let
-  subModules = dir:
+  mapFilterAttrs = pred: f: attrs: filterAttrs pred (mapAttrs' f attrs);
+in
+let
+  modulesInDir = dir:
     mapFilterAttrs
       (n: v: v != null && !(hasPrefix "_" n))
       (n: v:
@@ -10,4 +13,7 @@ let
           then nameValuePair (removeSuffix ".nix" n) (path)
         else nameValuePair "" null)
       (readDir dir);
-in { imports = [ (subModules ./). ]; }
+in
+{
+  imports = [ subModules ./. ];
+}
