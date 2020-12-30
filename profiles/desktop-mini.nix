@@ -24,6 +24,7 @@
 
     ../modules/tools/nix.nix
     ../modules/tools/misc.nix
+    ../modules/tools/xin/default.nix
 
     ../modules/dev/git.nix
     ../modules/dev/shell.nix

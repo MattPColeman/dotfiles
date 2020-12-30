@@ -41,6 +41,7 @@
     ../modules/tools/pentest.nix
     ../modules/tools/nix.nix
     ../modules/tools/misc.nix
+    ../modules/tools/xin/default.nix
 
     ../modules/dev/docker.nix
     ../modules/dev/git.nix
