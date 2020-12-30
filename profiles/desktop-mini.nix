@@ -25,8 +25,6 @@
     ../modules/tools/misc.nix
     ../modules/tools/xin/default.nix
 
-    ../modules/dev/git.nix
-    ../modules/dev/shell.nix
-    ../modules/dev/random_tools.nix
+    ../modules/dev/default.nix
   ];
 }

@@ -42,14 +42,6 @@
     ../modules/tools/misc.nix
     ../modules/tools/xin/default.nix
 
-    ../modules/dev/docker.nix
-    ../modules/dev/git.nix
-    ../modules/dev/go.nix
-    ../modules/dev/java.nix
-    ../modules/dev/python.nix
-    ../modules/dev/R.nix
-    ../modules/dev/shell.nix
-    ../modules/dev/random_tools.nix
-    ../modules/dev/terraform.nix
+    ../modules/dev/default.nix
   ];
 }
