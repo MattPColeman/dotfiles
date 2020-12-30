@@ -3,7 +3,7 @@
 {
   config = {
     environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-mini";
-    modules.shells.zsh.enable = true;
+    modules.shell.zsh.enable = true;
   };
 
   imports = [

@@ -3,8 +3,9 @@
 {
   config = {
     environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-full";
-    modules.shells.zsh.enable = true;
+    modules.shell.zsh.enable = true;
   };
+
   imports = [
     ../modules/themes/icons.nix
 
