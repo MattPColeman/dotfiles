@@ -2,14 +2,14 @@
 
 {
   options = {
-    modules.shells.zsh = with types; {
-      enable = mkBoolOpt false;
-      aliasFiles = mkOpt (listOf (either str path)) [];
-      envFiles = mkOpt (listOf (either str path)) [];
+    modules.shells.zsh = with lib.types; {
+      enable = lib.mkOption { type = bool; default = true; };
+      aliasFiles = lib.mkOption { type = (listOf (either str path)); default = []; };
+      envFiles = lib.mkOption { type = (listOf (either str path)); default = []; };
     };
   };
 
-  config = mkIf config.modules.shells.zsh.enable {
+  config = lib.mkIf config.modules.shells.zsh.enable {
     users.defaultUserShell = pkgs.zsh;
     environment.systemPackages = [ pkgs.zsh ];
 
