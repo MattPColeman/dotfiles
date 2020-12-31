@@ -1,6 +1,8 @@
 { config, home-manager, lib, options, ... }:
 
 with config; {
+  security.sudo.wheelNeedsPassword = false;
+
   local.username = "matt";
 
   users.extraUsers.${local.username} = {
