@@ -16,12 +16,11 @@
     let
       /* inherit (lib) listFiles listFilesRec listModules listModulesRec; */
       pkgs = nixpkgs;
-      lib = nixpkgs.lib.extend
-        (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
       mkNixosConf = host: profile:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            ./lib
             home-manager.nixosModules.home-manager
             host
             profile
@@ -32,6 +31,7 @@
     with builtins;
     with lib;
     {
+      imports = [ ./lib ];
       nixosConfigurations = listToAttrs (crossLists (h: p: { name = "${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value = mkNixosConf h p; }) [ (listModules ./hosts) (listModules ./profiles) ]);
     };
 }
