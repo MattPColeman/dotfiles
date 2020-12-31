@@ -1,5 +1,10 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
+with lib;
 {
-  services.xserver.desktopManager.pantheon.enable = true;
+  options.desktop.pantheon.enable = mkEnableOption "pantheon";
+
+  config = mkIf config.desktop.pantheon.enable {
+    services.xserver.desktopManager.pantheon.enable = true;
+  };
 }

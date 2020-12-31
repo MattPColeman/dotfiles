@@ -16,11 +16,6 @@ with config.local; {
     unclutter-xfixes
   ];
 
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeters.gtk.enable = true;
-  };
-
   services.xserver.desktopManager.xterm.enable = false;
 
   home.configFile = with config.local; {
