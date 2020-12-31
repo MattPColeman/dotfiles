@@ -9,6 +9,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+    with nixpkgs.lib;
     let
       mkNixosConf = host: profile:
         nixpkgs.lib.nixosSystem {
