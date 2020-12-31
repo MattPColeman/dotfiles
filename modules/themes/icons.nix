@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
-with lib; let cfg = config.modules.extraThemes
+with lib; let cfg = config.modules.extraThemes; in
 {
-  options.modules.extraThemes = mkEnableOption "extraThemes";
+  options.modules.extraThemes.enable = mkEnableOption "extraThemes";
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       materia-theme
