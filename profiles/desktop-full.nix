@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  /* 
+  /*
       WIP - the full desktop experience. Options referenced here may not exist...
   */
   config = {
@@ -46,6 +46,8 @@
       steam.enable = true;
       df.enable = true;
     };
+
+    modules.extraThemes.enable = true;
   };
 
   imports = [ ../modules ];
