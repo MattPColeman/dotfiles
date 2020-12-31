@@ -9,7 +9,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
-    with import ./lib; let
+    with import ./lib { lib = nixpkgs.lib; } ; let
       inherit (nixpkgs.lib) listFiles listFilesRec listModules listModulesRec;
       mkNixosConf = host: profile:
         nixpkgs.lib.nixosSystem {
