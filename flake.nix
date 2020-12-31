@@ -10,6 +10,7 @@
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     with nixpkgs.lib;
+    with import ./lib {lib=nixpkgs.lib;};
     let
       mkNixosConf = host: profile:
         nixpkgs.lib.nixosSystem {
