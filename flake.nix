@@ -22,7 +22,7 @@
           ];
           specialArgs = { inherit inputs; };
         };
-    in with lib; {
+    in with nixpkgs.lib; {
       nixosConfigurations = listToAttrs (crossLists (h: p: { name = "${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value = mkNixosConf h p; }) [ (listModules ./hosts) (listModules ./profiles) ]);
     };
 }
