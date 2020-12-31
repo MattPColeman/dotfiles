@@ -8,29 +8,20 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  /*
-    This is hideous, but by God does it just barely work.
-  */
-
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
-    let
-      /* inherit (lib) listFiles listFilesRec listModules listModulesRec; */
+    with import ./lib; let
+      inherit (nixpkgs.lib) listFiles listFilesRec listModules listModulesRec;
       mkNixosConf = host: profile:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./lib
             home-manager.nixosModules.home-manager
             host
             profile
           ];
           specialArgs = { inherit inputs; };
         };
-    in
-    with builtins;
-    with nixpkgs.lib;
-    {
-      imports = [ ./lib ];
+    in {
       nixosConfigurations = listToAttrs (crossLists (h: p: { name = "${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value = mkNixosConf h p; }) [ (listModules ./hosts) (listModules ./profiles) ]);
     };
 }
