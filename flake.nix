@@ -14,6 +14,7 @@
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let
+    inherit (lib) listFiles listFilesRec listModules listModulesRec;
       pkgs = nixpkgs;
       lib = nixpkgs.lib;
       mkNixosConf = host: profile:
@@ -27,7 +28,10 @@
           specialArgs = { inherit inputs; };
         };
     in
-    with builtins; with lib; with import ./lib/grok.nix { lib = lib; }; {
+    with builtins;
+    with lib;
+    with import ./lib/grok.nix { lib = lib; };
+    {
       nixosConfigurations = listToAttrs (crossLists (h: p: { name = "${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value = mkNixosConf h p; }) [ (listModules ./hosts) (listModules ./profiles) ]);
     };
 }
