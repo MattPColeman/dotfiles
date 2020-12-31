@@ -8,27 +8,25 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
+  /* 
+    This is hideous, but by God does it just barely work.
+  */
 
-    nixosConfigurations.migo-desktop-full = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        home-manager.nixosModules.home-manager
-        ./hosts/MiGo.nix
-        ./profiles/desktop-full.nix
-      ];
-      specialArgs = { inherit inputs; };
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+    let
+      pkgs = nixpkgs;
+      lib = nixpkgs.lib;
+      mkNixosConf = host: profile:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
+            host
+            profile
+          ];
+          specialArgs = { inherit inputs; };
+        };
+    in with builtins; with lib; with import ./lib/grok.nix { lib=lib; }; {
+      nixosConfigurations = listToAttrs (crossLists (h: p: { name="${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value=mkNixosConf h p; }) [(nixfilesInDir ./hosts) (nixfilesInDir ./profiles)]);
     };
-
-    nixosConfigurations.dagon-desktop-mini = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        home-manager.nixosModules.home-manager
-        ./hosts/Dagon.nix
-        ./profiles/desktop-mini.nix
-      ];
-      specialArgs = { inherit inputs; };
-    };
-
-  };
 }
