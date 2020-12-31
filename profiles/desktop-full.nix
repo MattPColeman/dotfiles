@@ -3,6 +3,24 @@
 {
   config = {
     environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-full";
+
+    modules.shell = {
+      zsh.enable  = true;
+      git.enable  = true;
+      misc.enable = true;
+    };
+
+    modules.dev = {
+      go.enable        = true;
+      java.enable      = true;
+      python.enable    = true;
+      R.enable         = true;
+      terraform.enable = true;
+    };
+    
+    modules.virtualisation = {
+      docker.enable = true;
+    };
   };
 
   imports = [
@@ -43,5 +61,7 @@
     ../modules/tools/xin/default.nix
 
     ../modules/dev/default.nix
+    ../modules/shell/default.nix
+    ../modules/virtualisation/default.nix
   ];
 }
