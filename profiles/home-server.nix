@@ -8,13 +8,13 @@
     environment.variables.CURRENT_SYSTEM_PROFILE = "home-server";
 
     modules.shell = {
-      zsh.enable  = true;
-      git.enable  = true;
+      zsh.enable = true;
+      git.enable = true;
     };
-    
+
     modules.virtualisation = {
       docker.enable = true;
     };
 
-  imports = [ ../modules/. ];
-}
+    imports = [ ../modules/. ];
+  }

@@ -11,9 +11,9 @@
 {
   boot.initrd.availableKernelModules =
     [ "ata_piix" "ohci_pci" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = [ ];
   boot.loader.grub.device = "/dev/sda";
   boot.initrd.checkJournalingFS = false;
 
@@ -21,7 +21,7 @@
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
   };
-  swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
+  swapDevices = [{ device = "/dev/disk/by-label/swap"; }];
 
   virtualisation.virtualbox.guest.enable = true;
 

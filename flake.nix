@@ -26,7 +26,8 @@
           ];
           specialArgs = { inherit inputs; };
         };
-    in with builtins; with lib; with import ./lib/grok.nix { lib=lib; }; {
-      nixosConfigurations = listToAttrs (crossLists (h: p: { name="${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value=mkNixosConf h p; }) [(nixfilesInDir ./hosts) (nixfilesInDir ./profiles)]);
+    in
+    with builtins; with lib; with import ./lib/grok.nix { lib = lib; }; {
+      nixosConfigurations = listToAttrs (crossLists (h: p: { name = "${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value = mkNixosConf h p; }) [ (nixfilesInDir ./hosts) (nixfilesInDir ./profiles) ]);
     };
 }

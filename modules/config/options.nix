@@ -12,11 +12,12 @@ with lib; {
       type = attrsOf (oneOf [ str path (listOf (either str path)) ]);
       apply = mapAttrs
         (
-          n: v: if isList v
-          then concatMapStringsSep ":" (x: toString x) v
-          else (toString v)
+          n: v:
+            if isList v
+            then concatMapStringsSep ":" (x: toString x) v
+            else (toString v)
         );
-      default = {};
+      default = { };
       description = "Copied wholesale from @hlissner, cheers.";
     };
   };

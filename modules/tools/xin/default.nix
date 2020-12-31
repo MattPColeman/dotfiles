@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 let
   xin = pkgs.stdenv.mkDerivation {
     pname = "xin";

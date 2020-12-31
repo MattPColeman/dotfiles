@@ -5,8 +5,8 @@ with lib;
   options = {
     modules.shell.zsh = with types; {
       enable = mkEnableOption "zsh";
-      aliasFiles = mkOption { type = (listOf (either str path)); default = []; };
-      envFiles = mkOption { type = (listOf (either str path)); default = []; };
+      aliasFiles = mkOption { type = (listOf (either str path)); default = [ ]; };
+      envFiles = mkOption { type = (listOf (either str path)); default = [ ]; };
     };
   };
 
