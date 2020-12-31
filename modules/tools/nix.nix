@@ -8,4 +8,5 @@
       experimental-features = nix-command flakes
     '';
   };
+  environment.systemPackages = [ pkgs.nixpkgs-fmt ];
 }
