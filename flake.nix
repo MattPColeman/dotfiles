@@ -9,7 +9,8 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
-    with import ./lib { lib = nixpkgs.lib; } ; let
+    with import ./lib { lib = nixpkgs.lib; } ;
+    let
       inherit (nixpkgs.lib) listFiles listFilesRec listModules listModulesRec;
       mkNixosConf = host: profile:
         nixpkgs.lib.nixosSystem {
@@ -21,7 +22,7 @@
           ];
           specialArgs = { inherit inputs; };
         };
-    in {
+    in with lib; {
       nixosConfigurations = listToAttrs (crossLists (h: p: { name = "${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value = mkNixosConf h p; }) [ (listModules ./hosts) (listModules ./profiles) ]);
     };
 }
