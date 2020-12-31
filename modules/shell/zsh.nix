@@ -14,6 +14,8 @@ with lib;
     users.defaultUserShell = pkgs.zsh;
     environment.systemPackages = [ pkgs.zsh ];
 
+    programs.zsh.enable = true; # Add zsh to /etc/shells, fixes lightdm user collection bug
+
     # Required for zsh to conform to XDG. Avoids boostrap problem?
     environment.variables = {
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";

@@ -16,5 +16,5 @@
       docker.enable = true;
     };
 
-    imports = [ ../modules/. ];
+    imports = [ ../modules ];
   }

@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
+with lib;
 {
-  environment.systemPackages = with pkgs; [ blender ];
+  options.modules.desktop.apps.blender.enable = mkEnableOption "blender";
+  config = mkIf config.modules.desktop.apps.blender.enable {
+    environment.systemPackages = [ pkgs.blender ];
+  };
 }

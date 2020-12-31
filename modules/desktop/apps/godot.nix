@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
+with lib;
 {
-  environment.systemPackages = with pkgs; [ godot ];
+  options.modules.desktop.apps.godot.enable = mkEnableOption "godot";
+  config = mkIf config.modules.desktop.apps.godot.enable {
+    environment.systemPackages = [ pkgs.godot ];
+  };
 }

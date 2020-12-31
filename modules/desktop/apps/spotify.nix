@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
+with lib;
 {
-  environment.systemPackages = with pkgs; [ spotify ];
+  options.modules.desktop.apps.spotify.enable = mkEnableOption "spotify";
+  config = mkIf config.modules.desktop.apps.spotify.enable {
+    environment.systemPackages = [ pkgs.spotify ];
+  };
 }

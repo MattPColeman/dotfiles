@@ -28,12 +28,13 @@
 
     modules.desktop = {
       greeter.lightdm.enable = true;
-      manager.i3 = {
-        enable = true;
-        compositing = true;
+      manager = {
+        i3.enable = true;
+        compositing.enable = true;
       };
       spotlight.rofi.enable = true;
       apps = {
+        firefox.enable = true;
         atom.enable = true;
         spotify.enable = true;
         thunar.enable = true;
@@ -47,5 +48,5 @@
     };
   };
 
-  imports = [ ../modules/. ];
+  imports = [ ../modules ];
 }

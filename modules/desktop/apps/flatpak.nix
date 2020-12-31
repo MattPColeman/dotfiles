@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
+with lib;
 {
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
+  options.modules.desktop.apps.flatpak.enable = mkEnableOption "flatpak";
+  config = mkIf config.modules.desktop.apps.flatpak.enable {
+    services.flatpak.enable = true;
+    xdg.portal.enable = true;
+  };
 }

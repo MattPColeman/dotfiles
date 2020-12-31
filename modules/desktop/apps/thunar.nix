@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
+with lib;
 {
-  environment.systemPackages = with pkgs; [ xfce.thunar xfce.gvfs gvfs ];
+  options.modules.desktop.apps.thunar.enable = mkEnableOption "thunar";
+  config = mkIf config.modules.desktop.apps.thunar.enable {
+    environment.systemPackages = with pkgs; [ xfce.thunar xfce.gvfs gvfs ];
+  };
 }

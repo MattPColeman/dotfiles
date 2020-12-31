@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
+with lib;
 {
-  environment.systemPackages = with pkgs; [ gimp ];
+  options.modules.desktop.apps.gimp.enable = mkEnableOption "gimp";
+  config = mkIf config.modules.desktop.apps.gimp.enable {
+    environment.systemPackages = [ pkgs.gimp ];
+  };
 }

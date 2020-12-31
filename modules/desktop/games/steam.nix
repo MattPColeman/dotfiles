@@ -1,14 +1,19 @@
-{ config, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
+with lib;
+let cfg = config.modules.games.steam; in
 {
-  environment.systemPackages = with pkgs; [ steam ];
+  options.modules.games.steam.enable = mkEnableOption "steam";
 
-  hardware.opengl.driSupport32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
+  config = {
+    environment.systemPackages = [ pkgs.steam ];
 
-  # I can't remember what this does, but it's probably useful.
-  services.udev.extraRules = ''
-    KERNEL=="hidraw*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", MODE="0666"
-  '';
+    hardware.opengl.driSupport32Bit = true;
+    hardware.pulseaudio.support32Bit = true;
 
+    # I can't remember what this does, but it's probably useful.
+    services.udev.extraRules = ''
+      KERNEL=="hidraw*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", MODE="0666"
+    '';
+  };
 }
