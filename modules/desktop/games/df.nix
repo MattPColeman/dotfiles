@@ -4,7 +4,7 @@ with lib; let cfg = config.modules.games.df; in
 {
   options.modules.games.df.enable = mkEnableOption "df";
 
-  config = {
+  config = mkIf cfg.enable {
     environment.systemPackages = with pkgs;
       [
         (

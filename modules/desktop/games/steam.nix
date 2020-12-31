@@ -5,7 +5,7 @@ let cfg = config.modules.games.steam; in
 {
   options.modules.games.steam.enable = mkEnableOption "steam";
 
-  config = {
+  config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.steam ];
 
     hardware.opengl.driSupport32Bit = true;
