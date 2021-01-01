@@ -3,32 +3,35 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.09";
-    nixpkgs-unstable.url = "nixpkgs/master";
-    home-manager.url = "github:nix-community/home-manager/release-20.09";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url                    = "github:nix-community/home-manager/release-20.09";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let
-      pkgs = nixpkgs;
-      uPkgs = nixpkgs-unstable;
+      inherit (lib) toLower removeSuffix;
 
-      lib = nixpkgs.lib.extend
-        (self: super: { my = import ./lib { lib = self; }; });
+      pkgs  = nixpkgs;
+      lib   = nixpkgs.lib.extend (self: super: { my = import ./lib { lib = self; }; });
 
-      mkNixosConf = host: profile:
+      extraModules = [ home-manager.nixosModules.home-manager ];
+
+      mkNixosSystem = host: profile:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            host
-            profile
-          ];
+          modules = extraModules ++ [ host profile ];
           specialArgs = { inherit lib inputs; };
         };
-    in
-    with lib;
-    with lib.my; {
-      nixosConfigurations = listToAttrs (crossLists (h: p: { name = "${toLower (removeSuffix ".nix" (baseNameOf h))}-${toLower (removeSuffix ".nix" (baseNameOf p))}"; value = mkNixosConf h p; }) [ (listModules ./hosts) (listModules ./profiles) ]);
+
+      moduleName = m: toLower (removeSuffix ".nix" (baseNameOf m));
+      mkNixosSystemName = host: profile: moduleName host + "-" + moduleName profile;
+      mapNixosSystems = host: prof: {name = mkNixosSystemName host prof; value = mkNixosSystem host prof; };
+
+    in with lib; with lib.my; {
+      nixosConfigurations = listToAttrs (
+        crossLists mapNixosSystems [ (listModules ./hosts) (listModules ./profiles) ]
+      );
     };
 }
