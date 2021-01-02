@@ -11,7 +11,7 @@
     user.test = {
       groups = [ "wheel" ];
       uid = 1999;
-      initialHashedPassword = "${config.local.secretsDir}/passwd_hash";
+      initialHashedPassword = "test";
     };
   };
 
