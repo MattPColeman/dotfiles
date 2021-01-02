@@ -2,7 +2,7 @@
 
 {
   /*
-      WIP - the full desktop experience. Options referenced here may not exist...
+      The full desktop experience.
   */
   config = {
     environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-full";

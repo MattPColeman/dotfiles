@@ -2,7 +2,7 @@
 
 {
   /*
-      WIP - for (slightly) weaker machines.
+      Desktop for weaker machines.
   */
   config = {
     environment.variables.CURRENT_SYSTEM_PROFILE = "desktop-mini";
