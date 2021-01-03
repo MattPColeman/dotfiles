@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  user = users.users;
+in
 {
   config = {
     environment.variables.CURRENT_SYSTEM_PROFILE = "test-profile";
@@ -8,7 +11,7 @@
       greeter.lightdm.enable = true;
     };
 
-    users.users.test = {
+    user.test = {
       extraGroups = [ "wheel" ];
       uid = 1999;
       initialHashedPassword = "";
