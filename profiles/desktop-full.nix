@@ -27,7 +27,7 @@
     };
 
     modules.desktop = {
-      greeter.lightdm.enable = true;
+      greeter.gdm.enable = true;
       manager = {
         i3.enable = true;
         gnome.enable = true;
