@@ -9,5 +9,6 @@ with lib; let cfg = config.modules.desktop.greeter.lightdm; in
       enable = true;
       greeters.gtk.enable = true;
     };
+    services.xserver.desktopManager.xterm.enable = false;
   };
 }

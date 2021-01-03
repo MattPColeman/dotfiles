@@ -20,8 +20,6 @@ with lib; let cfg = config.modules.desktop.manager.i3; in
       unclutter-xfixes
     ];
 
-    services.xserver.desktopManager.xterm.enable = false;
-
     home.configFile = with config.local; {
       "i3/config".source = "${configDir}/i3/config";
       "i3status/config".source = "${configDir}/i3status/config";

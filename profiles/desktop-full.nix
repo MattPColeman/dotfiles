@@ -30,6 +30,7 @@
       greeter.lightdm.enable = true;
       manager = {
         i3.enable = true;
+        gnome.enable = true;
         compositing.enable = true;
       };
       spotlight.rofi.enable = true;
