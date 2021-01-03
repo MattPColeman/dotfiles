@@ -11,7 +11,7 @@
     users.users.test = {
       extraGroups = [ "wheel" ];
       uid = 1999;
-      initialHashedPassword = "test";
+      initialHashedPassword = "";
     };
   };
 
