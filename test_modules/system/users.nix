@@ -4,7 +4,9 @@ with lib;
 {
 
   options = {
-    user = mkAliasDefinitions options.users.extraUsers;
+    user = {
+      modules = mkOption attrs;
+    };
   };
 
   config = {
