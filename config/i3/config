@@ -54,7 +54,7 @@
   ##----- Autostart -----##
   exec --no-startup-id unclutter --timeout 2 --ignore-scrolling &
   exec_always feh --bg-scale --no-fehbg ~/Pictures/wallpaper.jpg
-  exec_always --no-startup-id killall .polybar-wrappe && polybar top &
+  exec_always --no-startup-id polybar top &
 
 ##----- Window navigation -----##
   bindsym $mod+w kill
@@ -98,21 +98,21 @@
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -b 'Yes' 'i3-msg exit'"
   bindsym $mod+Shift+q exec "i3-nagbar -t error -m 'Shut down?' -b 'Yes' 'shutdown now'"
 
-bar {
-        position top
-        status_command i3status
-        strip_workspace_numbers yes
-        tray_output none #primary
-        separator_symbol "::"
-        font pango:Iosevka 10
-                colors {
-                        separator             $grey
-                        background            $bgcolor
-                        focused_workspace     $bgcolor  $bgcolor  #FFFFFF
-                        inactive_workspace    $bgcolor  $bgcolor  $grey
-                        urgent_workspace      $bgcolor  $bgcolor  $grey
-        }
-}
+# bar {
+#         position top
+#         status_command i3status
+#         strip_workspace_numbers yes
+#         tray_output none #primary
+#         separator_symbol "::"
+#         font pango:Iosevka 10
+#                 colors {
+#                         separator             $grey
+#                         background            $bgcolor
+#                         focused_workspace     $bgcolor  $bgcolor  #FFFFFF
+#                         inactive_workspace    $bgcolor  $bgcolor  $grey
+#                         urgent_workspace      $bgcolor  $bgcolor  $grey
+#         }
+# }
 
 ##----- Aesthetics -----##
 client.focused              $red        $red        $grey     $grey
