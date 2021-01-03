@@ -5,7 +5,7 @@ with lib;
 
   options = {
     user = {
-      modules = mkOption attrs;
+      modules = mkOption { type = types.attrs; };
     };
   };
 
