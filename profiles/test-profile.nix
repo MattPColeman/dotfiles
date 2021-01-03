@@ -8,7 +8,7 @@
       greeter.lightdm.enable = true;
     };
 
-    user.test = {
+    users.users.test = {
       groups = [ "wheel" ];
       uid = 1999;
       initialHashedPassword = "test";
