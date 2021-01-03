@@ -1,6 +1,7 @@
 [settings]
 throttle-ms = 50
 throttle-limit = 5
+screenchange-reload = true
 
 [bar/top]
 width = 100%
@@ -26,9 +27,9 @@ font-2 = ypn envypn:size=10;-1
 font-3 = Termsynu:size=8;-1
 font-4 = Unifont:size=6;-3
 
-modules-left = i3 bspwm
+modules-left = i3
 modules-center = xwindow
-modules-right = volume cpu memory clock
+modules-right = cpu memory clock
 
 [module/i3]
 type = internal/i3

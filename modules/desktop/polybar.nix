@@ -2,9 +2,13 @@
 
 with lib;
 {
-  options.desktop.polybar.enable = mkEnableOption "pantheon";
+  options.modules.desktop.bar.polybar.enable = mkEnableOption "pantheon";
 
-  config = mkIf config.desktop.polybar.enable {
+  config = mkIf config.modules.desktop.bar.polybar.enable {
     environment.systemPackages = with pkgs; [ polybarFull ];
+    home.configFile = with config.local; {
+      "polybar/config".source = "${configDir}/polybar/config";
+      "polybar/launch.sh".source = "${configDir}/polybar/launch.sh";
+    };
   };
 }

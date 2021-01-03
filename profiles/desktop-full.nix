@@ -33,6 +33,7 @@
         gnome.enable = true;
         compositing.enable = true;
       };
+      bar.polybar.enable = true;
       spotlight.rofi.enable = true;
       apps = {
         firefox.enable = true;
