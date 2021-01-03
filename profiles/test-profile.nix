@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  user = users.users;
+  user = config.users.users;
 in
 {
   config = {
