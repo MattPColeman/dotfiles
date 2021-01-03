@@ -9,7 +9,7 @@
     };
 
     users.users.test = {
-      groups = [ "wheel" ];
+      extraGroups = [ "wheel" ];
       uid = 1999;
       initialHashedPassword = "test";
     };
