@@ -7,6 +7,10 @@
     useKite: false
   "bracket-matcher": {}
   core:
+    themes: [
+      "one-dark-ui"
+      "gruvbox"
+    ]
     autoHideMenuBar: true
     disabledPackages: [
       "background-tips"
