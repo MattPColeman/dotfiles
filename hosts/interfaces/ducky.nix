@@ -18,12 +18,13 @@
     xmodmap -e "add ctrl = Control_L"
     xmodmap -e "keycode 105 = Right"
 
+    xmodmap -e "clear mod1"
+    xmodmap -e "add mod1 = Alt_L"
     xmodmap -e "keycode 108 = Left"
 
     xmodmap -e "clear mod4"
     xmodmap -e "add mod4 = Super_L"
     xmodmap -e "keycode 134 = Down"
-
   '';
 
   console.keyMap = "uk";

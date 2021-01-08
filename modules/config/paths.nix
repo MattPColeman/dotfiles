@@ -9,6 +9,8 @@
       hostsDir = "${dotfilesDir}/hosts";
       modulesDir = "${dotfilesDir}/modules";
       profilesDir = "${dotfilesDir}/profiles";
+      homeDir = "/home/${config.local.username}";
+      dataDir = "/data";
     };
     environment.variables = {
       DOTFILES = config.local.dotfilesDir;
