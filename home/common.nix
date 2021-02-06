@@ -1,7 +1,6 @@
 { pkgs, lib, ... }:
 
-let
-  nixBinDir = "$HOME/.nix-profile/bin";
+let nixBinDir = "$HOME/.nix-profile/bin";
 in {
   home.packages = with pkgs; [
     go
@@ -16,7 +15,6 @@ in {
     gopkgs
     neovim
     nixfmt
-    parted
     pipenv
     ranger
     gnumake
@@ -24,7 +22,6 @@ in {
     vscodium
     coreutils
     inetutils
-    nerdfonts
     terraform
     home-manager
     python37Full
@@ -35,9 +32,7 @@ in {
   fonts.fontconfig.enable = true;
 
   programs = {
-    firefox = {
-      enable = true;
-    };
+    firefox.enable = true;
     emacs.enable = true;
     git = {
       enable = true;
@@ -65,23 +60,19 @@ in {
         ms-azuretools.vscode-docker
       ];
       userSettings = {
-        # General
         "workbench.colorTheme" = "GitHub Dark";
         "terminal.integrated.shell.osx" = "/bin/zsh";
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;
         "editor.formatOnSave" = true;
 
-        # Git
         "git.confirmSync" = false;
         "gitlens.codeLens.enabled" = false;
 
-        # Go
         "go.inferGopath" = true;
         "go.formatTool" = "gofmt";
         "go.useGoProxyToCheckForToolUpdates" = false;
 
-        # Python
         "python.formatting.provider" = "black";
         "python.formatting.blackPath" = "${nixBinDir}/black";
         "python.linting.pylintEnabled" = false;
@@ -89,7 +80,6 @@ in {
         "python.linting.flake8Enabled" = true;
         "python.linting.flake8Path" = "${nixBinDir}/flake8";
 
-        # Nix
         "nixfmt.path" = "/Users/matt.coleman/.nix-profile/bin/nixfmt";
       };
     };
@@ -109,8 +99,6 @@ in {
         VISUAL = "nvim";
       };
       shellAliases = {
-
-        # navigation
         ls = "ls --color=auto";
         l = "ls --color=auto";
         ll = "ls -Al";
@@ -122,17 +110,16 @@ in {
         cdd = "cd ~/dev";
         treee = "tree -a -I '.git'";
 
-        # python
-        py = "python";
+        python = "python3";
+        py = "python3";
+        py2 = "python2";
 
-        # docker
         dk = "docker kill";
         dps = "docker ps";
         dka = "echo Killing containers:&& docker ps -q | xargs docker kill";
         dca = "docker image prune -f && docker container prune -f";
         dwa = "watch docker ps";
 
-        # git
         gst = "git status";
         gs = "git status";
         gc = "git commit";
@@ -145,7 +132,6 @@ in {
         gp = "git pull";
         gf = "git fetch";
 
-        # vim
         v = "nvim";
         vi = "nvim";
         vim = "nvim";

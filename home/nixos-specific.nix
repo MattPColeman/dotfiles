@@ -18,11 +18,11 @@ in
       spotify
       steam
       polybarFull
-      # rofi
       transmission-gtk
       xfce.thunar
       rxvt-unicode
       polybarFull
+      parted
     ];
 
   };

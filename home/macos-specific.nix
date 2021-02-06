@@ -27,5 +27,6 @@ let
     };
   };
 in {
+  imports = [./common.nix];
   programs.firefox.package = firefoxDMG;
 }
