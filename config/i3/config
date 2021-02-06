@@ -34,7 +34,7 @@
   set $up "k"
   set $right "l"
 
-  set $terminal "urxvt"
+  set $terminal "xterm"
   set $browser "firefox"
   set $editor "atom"
   set $spotlight "rofi -show run"
@@ -54,7 +54,7 @@
   ##----- Autostart -----##
   exec --no-startup-id unclutter --timeout 2 --ignore-scrolling &
   exec_always feh --bg-scale --no-fehbg ~/Pictures/wallpaper.jpg
-  exec_always --no-startup-id polybar top &
+  exec_always --no-startup-id launch_polybar.sh
 
 ##----- Window navigation -----##
   bindsym $mod+w kill

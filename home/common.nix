@@ -1,46 +1,26 @@
 { pkgs, lib, ... }:
 
 let
-  nixBinDir = "/Users/matt.coleman/.nix-profile/bin";
-  firefoxDMG = pkgs.stdenv.mkDerivation rec {
-    pname = "Firefox";
-    version = "84.0.2";
-
-    buildInputs = [ pkgs.undmg ];
-    sourceRoot = ".";
-    phases = [ "unpackPhase" "installPhase" ];
-    installPhase = ''
-      mkdir -p "$out/Applications"
-      cp -r Firefox.app "$out/Applications/Firefox.app"
-    '';
-
-    src = pkgs.fetchurl {
-      name = "Firefox-${version}.dmg";
-      url =
-        "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-GB/Firefox%20${version}.dmg";
-      sha256 =
-        "45ca188963f808297f4c6fd9119e9333aa8561a585523f57f5bcfe98e09dabb6";
-    };
-
-    meta = with pkgs.stdenv.lib; {
-      description = "Firefox seems to be broken on Darwin. Sad!";
-      platforms = platforms.darwin;
-    };
-  };
+  nixBinDir = "$HOME/.nix-profile/bin";
 in {
   home.packages = with pkgs; [
     go
     nix
     zsh
     htop
+    ncdu
     tree
+    wget
     black
     godef
     gopkgs
     neovim
     nixfmt
+    parted
     pipenv
     ranger
+    gnumake
+    neofetch
     vscodium
     coreutils
     inetutils
@@ -57,7 +37,6 @@ in {
   programs = {
     firefox = {
       enable = true;
-      package = lib.mkIf pkgs.stdenv.isDarwin firefoxDMG;
     };
     emacs.enable = true;
     git = {
@@ -73,16 +52,16 @@ in {
       enable = true;
       package = pkgs.vscodium;
       extensions = with pkgs.vscode-extensions; [
-        golang.Go
+        # golang.Go
         bbenoist.Nix
         scala-lang.scala
         # eamodio.gitlens
         # ms-python.python
         redhat.vscode-yaml
         # hashicorp.terraform
-        tamasfe.even-better-toml
-        brettm12345.nixfmt-vscode
-        github.github-vscode-theme
+        # tamasfe.even-better-toml
+        # brettm12345.nixfmt-vscode
+        # github.github-vscode-theme
         ms-azuretools.vscode-docker
       ];
       userSettings = {
@@ -90,6 +69,7 @@ in {
         "workbench.colorTheme" = "GitHub Dark";
         "terminal.integrated.shell.osx" = "/bin/zsh";
         "explorer.confirmDragAndDrop" = false;
+        "explorer.confirmDelete" = false;
         "editor.formatOnSave" = true;
 
         # Git
@@ -119,7 +99,7 @@ in {
       autocd = true;
       dotDir = ".config/zsh";
       envExtra = "source $HOME/.nix-profile/etc/profile.d/nix.sh";
-      initExtra = "export PATH=$HOME/.nix-profile/bin:$PATH";
+      initExtra = "export PATH=${../bin}:$HOME/.nix-profile/bin:$PATH";
       oh-my-zsh = {
         enable = true;
         theme = "simple";
@@ -129,6 +109,8 @@ in {
         VISUAL = "nvim";
       };
       shellAliases = {
+
+        # navigation
         ls = "ls --color=auto";
         l = "ls --color=auto";
         ll = "ls -Al";
@@ -139,12 +121,18 @@ in {
         cl = "clear";
         cdd = "cd ~/dev";
         treee = "tree -a -I '.git'";
+
+        # python
         py = "python";
+
+        # docker
         dk = "docker kill";
         dps = "docker ps";
         dka = "echo Killing containers:&& docker ps -q | xargs docker kill";
         dca = "docker image prune -f && docker container prune -f";
         dwa = "watch docker ps";
+
+        # git
         gst = "git status";
         gs = "git status";
         gc = "git commit";
@@ -156,6 +144,8 @@ in {
         gpush = "git push";
         gp = "git pull";
         gf = "git fetch";
+
+        # vim
         v = "nvim";
         vi = "nvim";
         vim = "nvim";

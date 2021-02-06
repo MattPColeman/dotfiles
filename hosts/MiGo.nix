@@ -20,7 +20,7 @@
 {
   environment.variables.CURRENT_SYSTEM_HOST = "migo";
   system.stateVersion = "20.09";
-  imports = [ ./interfaces/pulseaudio.nix ./interfaces/ducky.nix ];
+  imports = [ ./hardware/pulseaudio.nix ./hardware/ducky.nix ];
 
   # KERNEL
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "sd_mod" ];
