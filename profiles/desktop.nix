@@ -36,17 +36,17 @@
 
     security.sudo.wheelNeedsPassword = false;
     users.extraUsers.matt = {
-        isNormalUser = true;
-        home = "/home/matt";
-        extraGroups = [ "wheel" "networkmanager" "input" "audio" "docker" ];
-        uid = 1000;
+      isNormalUser = true;
+      home = "/home/matt";
+      extraGroups = [ "wheel" "networkmanager" "input" "audio" "docker" ];
+      uid = 1000;
     };
 
-   nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-   };
+    nix = {
+      package = pkgs.nixFlakes;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
+    };
   };
 }

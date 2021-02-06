@@ -1,10 +1,8 @@
 { pkgs, lib, ... }:
 
-let
-  configDir = ../config;
-in
-{
-  imports = [./common.nix];
+let configDir = ../config;
+in {
+  imports = [ ./common.nix ];
 
   xdg = {
     enable = true;
@@ -26,11 +24,7 @@ in
     ];
 
   };
-  programs = {
-    rofi = {
-      enable = true;
-    };
-  };
+  programs = { rofi = { enable = true; }; };
   services = {
     picom = {
       enable = true;
@@ -48,10 +42,10 @@ in
     windowManager = {
       command = "i3";
       i3 = {
-    package = pkgs.i3-gaps;
-    config.bars = [];
-    extraConfig = builtins.readFile ../config/i3/config;
-    };
+        package = pkgs.i3-gaps;
+        config.bars = [ ];
+        extraConfig = builtins.readFile ../config/i3/config;
+      };
     };
   };
 }
