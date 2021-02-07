@@ -58,6 +58,7 @@ in {
         # brettm12345.nixfmt-vscode
         # github.github-vscode-theme
         ms-azuretools.vscode-docker
+        # dracula-theme.theme-dracula
       ];
       userSettings = {
         "workbench.colorTheme" = "Dracula";
