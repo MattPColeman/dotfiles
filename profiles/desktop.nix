@@ -8,7 +8,10 @@
     services.xserver = {
       enable = true;
       displayManager.gdm.enable = true;
-      windowManager.i3.enable = true;
+      windowManager.i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
+      };
     };
 
     # Useful for Steam IIRC
@@ -16,7 +19,7 @@
     hardware.pulseaudio.support32Bit = true;
 
     fonts = {
-      enableFontDir = true;
+      fontDir.enable = true;
       enableGhostscriptFonts = true;
       fonts = with pkgs; [
         corefonts
@@ -40,8 +43,10 @@
       home = "/home/matt";
       extraGroups = [ "wheel" "networkmanager" "input" "audio" "docker" ];
       uid = 1000;
+      shell = pkgs.zsh;
     };
 
+    programs.dconf.enable = true;
     nix = {
       package = pkgs.nixFlakes;
       extraOptions = ''

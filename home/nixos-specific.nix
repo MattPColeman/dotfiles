@@ -7,12 +7,11 @@ in {
   xdg = {
     enable = true;
     configFile = {
+      "i3/config".source = "${configDir}/i3/config";
       "polybar/config".source = "${configDir}/polybar/config";
-      "polybar/launch.sh".source = "${configDir}/polybar/launch.sh";
     };
   };
-  home = {
-    packages = with pkgs; [
+  home.packages = with pkgs; [
       spotify
       steam
       polybarFull
@@ -20,11 +19,20 @@ in {
       xfce.thunar
       rxvt-unicode
       polybarFull
-      parted
+      feh
     ];
 
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.dracula-theme;
+      name = "Dracula";
+    };
   };
-  programs = { rofi = { enable = true; }; };
+  programs.rofi = {
+    enable = true;
+    theme = ../config/rofi/dracula.rasi;
+  };
   services = {
     picom = {
       enable = true;
@@ -37,15 +45,5 @@ in {
       vSync = true;
     };
   };
-  xsession = {
-    enable = true;
-    windowManager = {
-      command = "i3";
-      i3 = {
-        package = pkgs.i3-gaps;
-        config.bars = [ ];
-        extraConfig = builtins.readFile ../config/i3/config;
-      };
-    };
-  };
+  xresources.extraConfig = builtins.readFile ../config/xresources/dracula;
 }

@@ -60,7 +60,8 @@ in {
         ms-azuretools.vscode-docker
       ];
       userSettings = {
-        "workbench.colorTheme" = "GitHub Dark";
+        "workbench.colorTheme" = "Dracula";
+        "window.menuBarVisibility" = "toggle";
         "terminal.integrated.shell.osx" = "/bin/zsh";
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;

@@ -2,12 +2,12 @@
   description = "A very flaky system config.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.09";
+    nixpkgs.url = "nixpkgs/master";
     home-manager.url = "github:nix-community/home-manager/release-20.09";
   };
 
   outputs = { nixpkgs, home-manager, ... }: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./hosts/MiGo.nix
