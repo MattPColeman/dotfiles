@@ -27,6 +27,7 @@ in {
     python37Full
     python37Packages.pylint
     python37Packages.flake8
+    pipenv
   ];
 
   fonts.fontconfig.enable = true;
@@ -67,6 +68,7 @@ in {
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;
         "editor.formatOnSave" = true;
+        "files.insertFinalNewline" = true;
 
         "git.confirmSync" = false;
         "gitlens.codeLens.enabled" = false;
@@ -76,13 +78,14 @@ in {
         "go.useGoProxyToCheckForToolUpdates" = false;
 
         "python.formatting.provider" = "black";
-        "python.formatting.blackPath" = "${nixBinDir}/black";
+        "python.formatting.blackPath" = "${pkgs.black}/bin/black";
         "python.linting.pylintEnabled" = false;
-        "python.linting.pylintPath" = "${nixBinDir}/pylint";
+        "python.linting.pylintPath" = "${pkgs.python37Packages.pylint}/bin/pylint";
         "python.linting.flake8Enabled" = true;
-        "python.linting.flake8Path" = "${nixBinDir}/flake8";
+        "python.linting.flake8Path" = "${pkgs.python37Packages.flake8}/bin/flake8";
+        "python.linting.flake8Args" = ["--max-line-length=88"];
 
-        "nixfmt.path" = "/Users/matt.coleman/.nix-profile/bin/nixfmt";
+        "nixfmt.path" = "${pkgs.nixfmt}/bin/nixfmt";
       };
     };
     ssh.enable = true;

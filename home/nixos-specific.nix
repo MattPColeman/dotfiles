@@ -28,6 +28,14 @@ in {
       package = pkgs.dracula-theme;
       name = "Dracula";
     };
+    iconTheme = {
+      package = pkgs.paper-icon-theme;
+      name = "Paper";
+    };
+    # cursorTheme = {
+    #   package = pkgs.numix-cursor-theme;
+    #   name = "Paper";
+    # };
   };
   programs.rofi = {
     enable = true;
