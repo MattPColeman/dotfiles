@@ -1,40 +1,49 @@
 { pkgs, lib, ... }:
 
-let nixBinDir = "$HOME/.nix-profile/bin";
+let
+  configDir = ../config;
 in {
   home.packages = with pkgs; [
-    go
-    nix
-    zsh
-    htop
     ncdu
     tree
     wget
-    black
-    godef
-    gopkgs
-    neovim
-    nixfmt
-    pipenv
-    ranger
     gnumake
     neofetch
-    vscodium
     coreutils
     inetutils
+
     terraform
-    home-manager
+
+    nix
+    nixfmt
+
+    black
+    pipenv
     python37Full
     python37Packages.pylint
     python37Packages.flake8
-    pipenv
+    python37Packages.ptpython
   ];
 
   fonts.fontconfig.enable = true;
 
   programs = {
     firefox.enable = true;
+    home-manager.enable = true;
+    htop = {
+      enable = true;
+      enableMouse = true;
+    };
     emacs.enable = true;
+    go.enable = true;
+    neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      withPython3 = true;
+    };
+    lf.enable = true;
     git = {
       enable = true;
       userName = "Matt Coleman";
@@ -94,14 +103,31 @@ in {
       autocd = true;
       dotDir = ".config/zsh";
       envExtra = "source $HOME/.nix-profile/etc/profile.d/nix.sh";
-      initExtra = "export PATH=${../bin}:$HOME/.nix-profile/bin:$PATH";
+      initExtra = ''
+        export PATH=${../bin}:$HOME/.nix-profile/bin:$PATH
+        lf () {
+          tmp="$(mktemp)"
+          command lf --last-dir-path="$tmp" "$@"
+          if [ -f "$tmp" ]; then
+              dir="$(cat "$tmp")"
+              rm -f "$tmp"
+              if [ -d "$dir" ]; then
+                  if [ "$dir" != "$(pwd)" ]; then
+                      cd "$dir" && clear && ls
+                  fi
+              fi
+          fi
+        }
+      '';
       oh-my-zsh = {
         enable = true;
         theme = "simple";
+        plugins = [ "sudo" "vscode" ];
       };
       sessionVariables = {
         EDITOR = "nvim";
         VISUAL = "nvim";
+        BROWSER = "firefox";
       };
       shellAliases = {
         ls = "ls --color=auto";
@@ -115,9 +141,10 @@ in {
         cdd = "cd ~/dev";
         treee = "tree -a -I '.git'";
 
-        python = "python3";
-        py = "python3";
-        py2 = "python2";
+        python = "python3 -m ptpython";
+        python2 = "python2 -m ptpython";
+        py = "python3 -m ptpython";
+        py2 = "python2 -m ptpython";
 
         dk = "docker kill";
         dps = "docker ps";
@@ -136,14 +163,13 @@ in {
         gpush = "git push";
         gp = "git pull";
         gf = "git fetch";
-
-        v = "nvim";
-        vi = "nvim";
-        vim = "nvim";
-        nv = "nvim";
-        nvi = "nvim";
-        neovim = "nvim";
       };
+    };
+  };
+  xdg = {
+    enable = true;
+    configFile = {
+      "ptpython/config.py".source = "${configDir}/ptpython/config.py";
     };
   };
 }

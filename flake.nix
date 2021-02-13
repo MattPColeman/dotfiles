@@ -16,7 +16,9 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.matt = import ./home/nixos-specific.nix;
+          home-manager.users.matt = { ... }: {
+            imports = [./home/nixos-specific.nix];
+          };
         }
       ];
     };

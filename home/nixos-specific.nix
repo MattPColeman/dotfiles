@@ -1,15 +1,13 @@
 { pkgs, lib, ... }:
 
-let configDir = ../config;
+let
+  configDir = ../config;
 in {
   imports = [ ./common.nix ];
 
-  xdg = {
-    enable = true;
-    configFile = {
-      "i3/config".source = "${configDir}/i3/config";
-      "polybar/config".source = "${configDir}/polybar/config";
-    };
+  xdg.configFile = {
+    "i3/config".source = "${configDir}/i3/config";
+    "polybar/config".source = "${configDir}/polybar/config";
   };
   home.packages = with pkgs; [
       spotify
@@ -32,10 +30,6 @@ in {
       package = pkgs.paper-icon-theme;
       name = "Paper";
     };
-    # cursorTheme = {
-    #   package = pkgs.numix-cursor-theme;
-    #   name = "Paper";
-    # };
   };
   programs.rofi = {
     enable = true;
