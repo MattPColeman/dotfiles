@@ -20,7 +20,6 @@
 {
   environment.variables.CURRENT_SYSTEM_HOST = "migo";
   system.stateVersion = "20.09";
-  imports = [ ./hardware/pulseaudio.nix ];
 
   # KERNEL
   boot.initrd.availableKernelModules =
@@ -69,7 +68,7 @@
   sound.enable = true;
   hardware.pulseaudio = {
     enable = true;
-    configFile = "${configDir}/pulseaudio/config";
+    configFile = ../config/pulseaudio/config;
   };
 
   # HARDWARE TWEAKS
