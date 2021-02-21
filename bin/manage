@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+case "$OSTYPE" in
+    darwin* )     bin="darwin-rebuild" ;;
+    linux-gnu* )  bin="nixos-rebuild" ;;
+    * )           exit 1 ;;
+esac
+
+cmd="${bin} switch --flake ${DOTFILES_DIR}/.#${FLAKE_BUILD}"
+echo $cmd
+eval $cmd
+
+

@@ -20,7 +20,7 @@
 {
   environment.variables.CURRENT_SYSTEM_HOST = "migo";
   system.stateVersion = "20.09";
-  imports = [ ./hardware/pulseaudio.nix ./hardware/ducky.nix ];
+  imports = [ ./hardware/pulseaudio.nix ];
 
   # KERNEL
   boot.initrd.availableKernelModules =
@@ -51,14 +51,51 @@
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  # BOOT
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  environment.systemPackages = with pkgs; [
+      efibootmgr
+      xorg.xmodmap
+  ];
+
   # GPU
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
   };
 
-  # BOOT
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  environment.systemPackages = with pkgs; [ efibootmgr ];
+  # AUDIO
+  sound.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    configFile = "${configDir}/pulseaudio/config";
+  };
+
+  # HARDWARE TWEAKS
+  environment.extraInit = ''
+    # Remap keys for Ducky mini. Dipswitches for the below are:
+    #  1 ON
+    #  2 OFF
+    #  3 OFF
+    #  4 OFF
+
+    xmodmap -e "clear shift"
+    xmodmap -e "add shift = Shift_L"
+    xmodmap -e "keycode 62 = Up"
+
+    xmodmap -e "clear ctrl"
+    xmodmap -e "add ctrl = Control_L"
+    xmodmap -e "keycode 105 = Right"
+
+    xmodmap -e "keycode 108 = Left"
+
+    xmodmap -e "clear mod4"
+    xmodmap -e "add mod4 = Super_L"
+    xmodmap -e "keycode 134 = Down"
+
+    # fix stutter when resuming audio
+    xset s off -dpms
+  '';
+
 }

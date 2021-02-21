@@ -3,19 +3,13 @@
 let
   configDir = ../config;
 in {
-  imports = [ ./common.nix ];
+  home.sessionVariables.FLAKE_BUILD = "MIGO";
 
-  xdg.configFile = {
-    "i3/config".source = "${configDir}/i3/config";
-    "polybar/config".source = "${configDir}/polybar/config";
-  };
+  imports = [ ./common.nix ];
   home.packages = with pkgs; [
-      spotify
       steam
       polybarFull
       transmission-gtk
-      xfce.thunar
-      rxvt-unicode
       polybarFull
       feh
     ];
@@ -47,5 +41,4 @@ in {
       vSync = true;
     };
   };
-  xresources.extraConfig = builtins.readFile ../config/xresources/dracula;
 }

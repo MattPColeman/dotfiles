@@ -27,6 +27,14 @@ let
     };
   };
 in {
+  home.sessionVariables.FLAKE_BUILD = "DAGON";
+
   imports = [ ./common.nix ];
-  programs.firefox.package = firefoxDMG;
+  programs = {
+    firefox.package = firefoxDMG;
+    zsh.envExtra = ''
+      export PATH=/etc/profiles/per-user/$(whoami)/bin/:$PATH
+      export PATH=/run/current-system/sw/bin:$PATH
+    '';
+  };
 }

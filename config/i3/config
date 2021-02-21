@@ -34,20 +34,13 @@
   set $up "k"
   set $right "l"
 
-  set $terminal "urxvt"
-  set $browser "firefox"
-  set $editor "codium"
-  set $spotlight "rofi -show run"
-  set $files "urxvt --hold -e ranger"
-  set $notes "notable"
-
   ##----- Launchers -----##
-  bindsym $mod+Return exec --no-startup-id $terminal
-  bindsym $mod+space exec --no-startup-id $spotlight
-  bindsym $mod+f exec --no-startup-id $files
-  bindsym $mod+b exec --no-startup-id $browser
-  bindsym $mod+e exec --no-startup-id $editor
-  bindsym $mod+n exec --no-startup-id $notes
+  bindsym $mod+Return exec --no-startup-id "$TERMINAL"
+  bindsym $mod+space exec --no-startup-id "rofi -show run"
+  bindsym $mod+f exec --no-startup-id "$TERMINAL --hold -e $FILE_MANAGER"
+  bindsym $mod+b exec --no-startup-id "$BROWSER"
+  bindsym $mod+e exec --no-startup-id "$IDE"
+  bindsym $mod+n exec --no-startup-id "notable"
   bindsym $mod+t exec --no-startup-id thunar
   bindsym $mod+s exec --no-startup-id spotify
 
