@@ -21,13 +21,13 @@ in {
     terraform_0_14
     nix
     nixfmt
-    black
     pipenv
     python27Full
     python37Full
     python37Packages.pylint
     python37Packages.flake8
     python37Packages.ptpython
+    python37Packages.black
   ];
 
   programs = {
