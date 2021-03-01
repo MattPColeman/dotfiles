@@ -10,7 +10,6 @@ in
 
   home.packages = with pkgs; [
     awscli
-    spotify-tui
     ncdu
     tree
     watch

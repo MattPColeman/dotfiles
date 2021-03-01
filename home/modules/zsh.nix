@@ -17,6 +17,9 @@ in
       dev = "$HOME/Dev";
     };
     initExtra = ''
+      # Tmux at shell init
+      [[ $TERM != "screen" ]] && exec tmux
+
       # xdg.enable may not set these early enough
       export XDG_CACHE_HOME=$HOME/.cache
       export XDG_CONFIG_HOME=$HOME/.config
