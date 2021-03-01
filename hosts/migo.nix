@@ -18,7 +18,6 @@
 */
 
 {
-  environment.variables.CURRENT_SYSTEM_HOST = "migo";
   system.stateVersion = "20.09";
 
   # KERNEL

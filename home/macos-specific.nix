@@ -15,13 +15,11 @@ let
 
     src = pkgs.fetchurl {
       name = "Firefox-${version}.dmg";
-      url =
-        "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-GB/Firefox%20${version}.dmg";
-      sha256 =
-        "45ca188963f808297f4c6fd9119e9333aa8561a585523f57f5bcfe98e09dabb6";
+      url = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-GB/Firefox%20${version}.dmg";
+      sha256 = "45ca188963f808297f4c6fd9119e9333aa8561a585523f57f5bcfe98e09dabb6";
     };
 
-    meta = with pkgs.stdenv.lib; {
+    meta = with pkgs.lib; {
       description = "Firefox seems to be broken on Darwin. Sad!";
       platforms = platforms.darwin;
     };
