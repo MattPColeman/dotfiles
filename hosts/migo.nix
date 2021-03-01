@@ -53,8 +53,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   environment.systemPackages = with pkgs; [
-      efibootmgr
-      xorg.xmodmap
+    efibootmgr
+    xorg.xmodmap
   ];
 
   # GPU

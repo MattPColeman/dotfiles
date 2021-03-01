@@ -1,20 +1,20 @@
 { pkgs, lib, ... }:
-
 let
   configDir = ../config;
-in {
+in
+{
   home.sessionVariables.FLAKE_BUILD = "MIGO";
 
   imports = [ ./common.nix ];
   home.packages = with pkgs; [
-      polybarFull
-      transmission-gtk
-      polybarFull
-      feh
-      docker
-      docker-compose
-      steam
-    ];
+    polybarFull
+    transmission-gtk
+    polybarFull
+    feh
+    docker
+    docker-compose
+    steam
+  ];
 
   gtk = {
     enable = true;

@@ -1,8 +1,8 @@
 { pkgs, lib, ... }:
-
 let
   configDir = ../config;
-in {
+in
+{
   imports = [
     ./modules/vscode.nix
     ./modules/zsh.nix
@@ -86,8 +86,8 @@ in {
   xdg = {
     enable = true;
     configFile = {
-      "i3/config".source          = "${configDir}/i3/config";
-      "polybar/config".source     = "${configDir}/polybar/config";
+      "i3/config".source = "${configDir}/i3/config";
+      "polybar/config".source = "${configDir}/polybar/config";
     };
   };
 }

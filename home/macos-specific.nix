@@ -1,5 +1,4 @@
 { pkgs, lib, ... }:
-
 let
   firefoxDMG = pkgs.stdenv.mkDerivation rec {
     pname = "Firefox";
@@ -24,7 +23,8 @@ let
       platforms = platforms.darwin;
     };
   };
-in {
+in
+{
   home.sessionVariables.FLAKE_BUILD = "DAGON";
 
   imports = [ ./common.nix ];
