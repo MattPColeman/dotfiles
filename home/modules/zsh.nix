@@ -17,10 +17,12 @@ in {
             dev = "$HOME/Dev";
         };
         initExtra = ''
+            # xdg.enable may not set these early enough
             export XDG_CACHE_HOME=$HOME/.cache
             export XDG_CONFIG_HOME=$HOME/.config
             export XDG_DATA_HOME=$HOME/.local/share
 
+            # lf, but it drops you at the directory
             lf () {
               tmp="$(mktemp)"
               command lf --last-dir-path="$tmp" "$@"
@@ -35,13 +37,14 @@ in {
               fi
             }
 
+            # "go to"
             gt () {
               case "$1" in
-                  c|cf|conf|config ) target="$HOME/.config" ;;
-                  df|dot|dotfiles )  target="$HOME/.config/dotfiles" ;;
-                  dv|dev )           target="$HOME/Dev" ;;
-                  dl )               target="$HOME/Downloads" ;;
-                  * )                 cd "$@" && return 0 ;; 
+                  c|cf|conf|config )  target="$HOME/.config" ;;
+                  dl|down|downloads ) target="$HOME/Downloads" ;;
+                  df|dot|dotfiles )   target="$HOME/.config/dotfiles" ;;
+                  d|dv|dev )          target="$HOME/Dev" ;;
+                  * )                 cd "$@" && return 0 ;;
               esac
               cd $target
             }
@@ -71,15 +74,15 @@ in {
             cdd = "cd ~/dev";
             treee = "tree -a -I '.git'";
 
-            python = "ptpython --config-file $XDG_CONFIG_HOME/ptpython/config.py";
-            py = "ptpython --config-file $XDG_CONFIG_HOME/ptpython/config.py";
-            py3 = "ptpython --config-file $XDG_CONFIG_HOME/ptpython/config.py";
+            python = "python3";
+            py = "python3";
+            py3 = "python3";
             py2 = "python2";
 
             dk = "docker kill";
             dps = "docker ps";
             dka = "echo Killing containers:&& docker ps -q | xargs docker kill";
-            dca = "docker image prune -f && docker container prune -f";
+            dca = "docker image prune -f && docker container prune -f && docker system prune -f";
             dwa = "watch docker ps";
 
             gst = "git status";

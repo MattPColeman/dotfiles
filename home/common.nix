@@ -9,6 +9,7 @@ in {
   ];
 
   home.packages = with pkgs; [
+    awscli
     spotify-tui
     ncdu
     tree
@@ -18,6 +19,7 @@ in {
     neofetch
     coreutils
     inetutils
+    terraform-docs
     terraform_0_14
     nix
     nixfmt
@@ -26,7 +28,6 @@ in {
     python37Full
     python37Packages.pylint
     python37Packages.flake8
-    python37Packages.ptpython
     python37Packages.black
   ];
 
@@ -85,7 +86,6 @@ in {
   xdg = {
     enable = true;
     configFile = {
-      "ptpython/config.py".source = "${configDir}/ptpython/config.py";
       "i3/config".source          = "${configDir}/i3/config";
       "polybar/config".source     = "${configDir}/polybar/config";
     };
