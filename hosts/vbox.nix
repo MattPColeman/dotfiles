@@ -1,3 +1,5 @@
+{ config, lib, pkgs, ... }:
+
 /* hosts/Dagon.nix
     VirtualBox "hardware" config and tweaks.
     Requires:
@@ -5,8 +7,6 @@
       * disk labelled "nixos"
       * disk labelled "swap""
 */
-
-{ config, lib, pkgs, ... }:
 
 {
   boot.initrd.availableKernelModules =
