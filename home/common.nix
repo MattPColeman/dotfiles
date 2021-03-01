@@ -10,8 +10,6 @@ in {
 
   home.packages = with pkgs; [
     spotify-tui
-    docker
-    docker-compose
     ncdu
     tree
     watch

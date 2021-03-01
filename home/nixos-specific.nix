@@ -7,11 +7,13 @@ in {
 
   imports = [ ./common.nix ];
   home.packages = with pkgs; [
-      steam
       polybarFull
       transmission-gtk
       polybarFull
       feh
+      docker
+      docker-compose
+      steam
     ];
 
   gtk = {
