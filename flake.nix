@@ -23,7 +23,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.matt = { ... }: { imports = [ ./home/nixos-specific.nix ./themes/dracula.nix ]; };
+          home-manager.users.matt = { ... }: { imports = [ ./home/nixos-specific.nix ./themes/dracula ]; };
         }
       ];
     };
@@ -35,7 +35,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users."matt.coleman" = { ... }: { imports = [ ./home/macos-specific.nix ./themes/dracula.nix ]; };
+          home-manager.users."matt.coleman" = { ... }: { imports = [ ./home/macos-specific.nix ./themes/dracula ]; };
         }
       ];
     };

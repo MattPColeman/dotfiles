@@ -1,7 +1,4 @@
 { pkgs, lib, ... }:
-let
-  configDir = ../config;
-in
 {
   home.sessionVariables.FLAKE_BUILD = "MIGO";
 
@@ -29,7 +26,6 @@ in
   };
   programs.rofi = {
     enable = true;
-    theme = ../config/rofi/dracula.rasi;
   };
   services = {
     picom = {

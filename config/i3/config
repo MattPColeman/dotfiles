@@ -35,14 +35,14 @@
   set $right "l"
 
   ##----- Launchers -----##
-  bindsym $mod+Return exec --no-startup-id "$TERMINAL"
+  bindsym $mod+Return exec --no-startup-id "alacritty"
   bindsym $mod+space exec --no-startup-id "rofi -show run"
-  bindsym $mod+f exec --no-startup-id "$TERMINAL --hold -e $FILE_MANAGER"
-  bindsym $mod+b exec --no-startup-id "$BROWSER"
-  bindsym $mod+e exec --no-startup-id "$IDE"
+  bindsym $mod+f exec --no-startup-id "alacritty --hold -e lf"
+  bindsym $mod+b exec --no-startup-id "firefox"
+  bindsym $mod+e exec --no-startup-id "codium"
   bindsym $mod+n exec --no-startup-id "notable"
-  bindsym $mod+t exec --no-startup-id thunar
-  bindsym $mod+s exec --no-startup-id spotify
+  bindsym $mod+t exec --no-startup-id "thunar"
+  bindsym $mod+s exec --no-startup-id "spotify"
 
   ##----- Autostart -----##
   exec --no-startup-id unclutter --timeout 2 --ignore-scrolling &

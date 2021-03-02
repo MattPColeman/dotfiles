@@ -1,0 +1,5 @@
+- [ ] Migrate dracula/rofi.rasi to nix
+- [ ] Add i3conf env var progs
+- [ ] Move i3conf to nix (xmonad?)
+- [ ] Wallpaper from configured theme
+- [ ] Open pulls for missing vscode extensions

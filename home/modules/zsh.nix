@@ -15,6 +15,7 @@ in
       dotfiles = "$HOME/.config/dotfiles";
       root = "/";
       dev = "$HOME/Dev";
+      downloads = "$HOME/Downloads";
     };
     initExtra = ''
       # Tmux at shell init
@@ -43,11 +44,11 @@ in
       # "go to"
       gt () {
         case "$1" in
-            c|cf|conf|config )  target="$HOME/.config" ;;
-            dl|down|downloads ) target="$HOME/Downloads" ;;
-            df|dot|dotfiles )   target="$HOME/.config/dotfiles" ;;
-            d|dv|dev )          target="$HOME/Dev" ;;
-            * )                 cd "$@" && return 0 ;;
+            c|cf|conf|config )     target="$HOME/.config" ;;
+            dl|down|downloads )    target="$HOME/Downloads" ;;
+            df|dot|dots|dotfiles ) target="$HOME/.config/dotfiles" ;;
+            d|dv|dev )             target="$HOME/Dev" ;;
+            * )                    cd "$@" && return 0 ;;
         esac
         cd $target
       }

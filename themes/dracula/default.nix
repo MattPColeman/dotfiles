@@ -5,6 +5,7 @@
       # extensions = [ pkgs.vscode-extensions.dracula-theme.theme-dracula ];
       userSettings."workbench.colorTheme" = "Dracula";
     };
+    rofi.theme = ./rofi.rasi;
     alacritty.settings.colors = {
       primary = {
         background = "0x282a36";
@@ -72,5 +73,4 @@
       };
     };
   };
-  xresources.extraConfig = builtins.readFile ../config/xresources/dracula;
 }
