@@ -33,6 +33,7 @@ in
     zsh.envExtra = ''
       export PATH=/etc/profiles/per-user/$(whoami)/bin/:$PATH
       export PATH=/run/current-system/sw/bin:$PATH
+      export PATH=$PATH:/Applications/Docker.app/Contents/Resources/bin
     '';
   };
 }
