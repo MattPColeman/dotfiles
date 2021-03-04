@@ -1,6 +1,11 @@
 { pkgs, lib, ... }:
 let
   configDir = ../config;
+  ls-colors = pkgs.runCommand "ls-colors" {} ''
+    mkdir -p $out/bin
+    ln -s ${pkgs.coreutils}/bin/ls $out/bin/ls
+    ln -s ${pkgs.coreutils}/bin/dircolors $out/bin/dircolors
+  '';
 in
 {
   imports = [
@@ -16,7 +21,7 @@ in
     wget
     gnumake
     neofetch
-    coreutils
+    ls-colors
     inetutils
     terraform-docs
     terraform_0_14
