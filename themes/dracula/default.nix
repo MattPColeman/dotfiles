@@ -1,6 +1,16 @@
 { pkgs, lib, ... }:
 {
   programs = {
+    gtk = {
+      theme = {
+        package = pkgs.dracula-theme;
+        name = "Dracula";
+      };
+      iconTheme = {
+        package = pkgs.paper-icon-theme;
+        name = "Paper";
+      };
+    };
     vscode = {
       extensions = [ pkgs.vscode-extensions.dracula-theme.theme-dracula ];
       userSettings."workbench.colorTheme" = "Dracula";

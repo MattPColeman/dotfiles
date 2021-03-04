@@ -15,6 +15,11 @@
         redhat.vscode-yaml
         file-icons.file-icons
       ];
+      keybindings = [
+        { key = "cmd+g"; command = "workbench.scm.focus"; }
+        { key = "cmd+b"; command = "workbench.files.action.focusFilesExplorer"; }
+        { key = "cmd+escape"; command = "workbench.action.closeSidebar"; }
+      ];
       userSettings = with pkgs; {
         "window.menuBarVisibility" = "toggle";
         "terminal.integrated.shell.osx" = "/bin/zsh";
@@ -23,6 +28,7 @@
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;
         "files.insertFinalNewline" = true;
+        "files.autoSave" = "onFocusChange";
 
         "editor.formatOnSave" = false;
         "editor.scrollbar.horizontal" = "hidden";
@@ -34,6 +40,8 @@
         "editor.fontFamily" = "Fira Code";
         "editor.fontLigatures" = true;
         "editor.fontSize" = 14;
+        "workbench.iconTheme" = null;
+        "workbench.tree.renderIndentGuides" = "none";
 
         "git.confirmSync" = false;
         "gitlens.codeLens.enabled" = false;
@@ -41,7 +49,6 @@
         "gitlens.changes.locations" = [ "gutter" ];
         "scm.diffDecorations" = "gutter";
 
-        "go.inferGopath" = true;
         "go.formatTool" = "gofmt";
         "go.useGoProxyToCheckForToolUpdates" = false;
 

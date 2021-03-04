@@ -10,6 +10,8 @@ in
     envExtra = ''
       source $HOME/.nix-profile/etc/profile.d/nix.sh
       export PATH=${binDir}:$HOME/.nix-profile/bin:$PATH
+      export GOROOT=${pkgs.go.out}/share/go
+      export GOPATH=$HOME/go
     '';
     dirHashes = {
       dotfiles = "$HOME/.config/dotfiles";
@@ -67,8 +69,8 @@ in
       FILE_MANAGER = "lf";
     };
     shellAliases = {
-      ls = "ls --color=auto";
-      l = "ls --color=auto";
+      ls = "ls --color=auto -F";
+      l = "ls --color=auto -F";
       ll = "ls -Al";
       la = "ls -A";
       lla = "ls -lA";

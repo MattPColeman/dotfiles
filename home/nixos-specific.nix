@@ -1,7 +1,5 @@
 { pkgs, lib, ... }:
 {
-  home.sessionVariables.FLAKE_BUILD = "MIGO";
-
   imports = [ ./common.nix ];
   home.packages = with pkgs; [
     polybarFull
@@ -13,20 +11,8 @@
     steam
   ];
 
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.dracula-theme;
-      name = "Dracula";
-    };
-    iconTheme = {
-      package = pkgs.paper-icon-theme;
-      name = "Paper";
-    };
-  };
-  programs.rofi = {
-    enable = true;
-  };
+  gtk.enable = true;
+  programs.rofi.enable = true;
   services = {
     picom = {
       enable = true;

@@ -25,6 +25,7 @@ in
     inetutils
     terraform-docs
     terraform_0_14
+    gopls
     nix
     nixfmt
     pipenv

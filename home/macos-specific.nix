@@ -25,8 +25,6 @@ let
   };
 in
 {
-  home.sessionVariables.FLAKE_BUILD = "DAGON";
-
   imports = [ ./common.nix ];
   programs = {
     firefox.package = firefoxDMG;
