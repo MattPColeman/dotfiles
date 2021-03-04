@@ -6,15 +6,16 @@
       package = pkgs.vscodium;
       extensions = with pkgs.vscode-extensions; [
         ms-azuretools.vscode-docker
-        # eamodio.gitlens
-        # golang.Go
-        # hashicorp.terraform
+        eamodio.gitlens
+        golang.Go
+        hashicorp.terraform
         bbenoist.Nix
         # ms-python.python
         scala-lang.scala
         redhat.vscode-yaml
+        file-icons.file-icons
       ];
-      userSettings = {
+      userSettings = with pkgs; {
         "window.menuBarVisibility" = "toggle";
         "terminal.integrated.shell.osx" = "/bin/zsh";
         "breadcrumbs.enabled" = false;
@@ -45,14 +46,14 @@
         "go.useGoProxyToCheckForToolUpdates" = false;
 
         "python.formatting.provider" = "black";
-        "python.formatting.blackPath" = "${pkgs.black}/bin/black";
+        "python.formatting.blackPath" = "${python38Packages.black}/bin/black";
         "python.linting.pylintEnabled" = false;
-        "python.linting.pylintPath" = "${pkgs.python37Packages.pylint}/bin/pylint";
+        "python.linting.pylintPath" = "${python38Packages.pylint}/bin/pylint";
         "python.linting.flake8Enabled" = true;
-        "python.linting.flake8Path" = "${pkgs.python37Packages.flake8}/bin/flake8";
+        "python.linting.flake8Path" = "${python38Packages.flake8}/bin/flake8";
         "python.linting.flake8Args" = [ "--max-line-length=88" ];
 
-        "nixfmt.path" = "${pkgs.nixfmt}/bin/nixfmt";
+        "nixfmt.path" = "${nixfmt}/bin/nixfmt";
       };
     };
   };

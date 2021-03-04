@@ -2,19 +2,16 @@
   description = "A very flaky system config.";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "nixpkgs/master";
-
+    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, home-manager, darwin, ... }: {
 
-    nixosConfigurations.MIGO = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.migo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./hosts/migo.nix
@@ -23,21 +20,24 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.matt = { ... }: { imports = [ ./home/nixos-specific.nix ./themes/dracula ]; };
+          home-manager.users.matt = { ... }:
+            { imports = [ ./home/nixos-specific.nix ./themes/dracula ]; };
         }
       ];
     };
 
-    darwinConfigurations.DAGON = darwin.lib.darwinSystem {
+    darwinConfigurations.dagon = darwin.lib.darwinSystem {
       modules = [
         ./system/macos-specific.nix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users."matt.coleman" = { ... }: { imports = [ ./home/macos-specific.nix ./themes/dracula ]; };
+          home-manager.users."matt.coleman" = { ... }:
+            { imports = [ ./home/macos-specific.nix ./themes/dracula ]; };
         }
       ];
     };
+
   };
 }

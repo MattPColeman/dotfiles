@@ -24,10 +24,10 @@ in
     nixfmt
     pipenv
     python27Full
-    python37Full
-    python37Packages.pylint
-    python37Packages.flake8
-    python37Packages.black
+    python38Full
+    python38Packages.pylint
+    python38Packages.flake8
+    python38Packages.black
   ];
 
   programs = {

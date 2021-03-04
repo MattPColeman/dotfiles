@@ -2,7 +2,7 @@
 {
   programs = {
     vscode = {
-      # extensions = [ pkgs.vscode-extensions.dracula-theme.theme-dracula ];
+      extensions = [ pkgs.vscode-extensions.dracula-theme.theme-dracula ];
       userSettings."workbench.colorTheme" = "Dracula";
     };
     rofi.theme = ./rofi.rasi;
