@@ -1,16 +1,16 @@
 { pkgs, lib, ... }:
 {
-  programs = {
-    gtk = {
-      theme = {
-        package = pkgs.dracula-theme;
-        name = "Dracula";
-      };
-      iconTheme = {
-        package = pkgs.paper-icon-theme;
-        name = "Paper";
-      };
+  gtk = {
+    theme = {
+      package = pkgs.dracula-theme;
+      name = "Dracula";
     };
+    iconTheme = {
+      package = pkgs.paper-icon-theme;
+      name = "Paper";
+    };
+  };
+  programs = {
     vscode = {
       extensions = [ pkgs.vscode-extensions.dracula-theme.theme-dracula ];
       userSettings."workbench.colorTheme" = "Dracula";
@@ -22,7 +22,7 @@
     rofi.theme = ./rofi.rasi;
     alacritty.settings = {
       font = {
-        size = 14;
+        size = 13;
         normal = {
           family = "Hack";
           style = "Regular";

@@ -67,6 +67,7 @@ in
       BROWSER = "firefox";
       TERMINAL = "alacritty";
       FILE_MANAGER = "lf";
+      IDE = "codium";
     };
     shellAliases = {
       ls = "ls --color=auto -F";
@@ -79,6 +80,7 @@ in
       cl = "clear";
       cdd = "cd ~/dev";
       treee = "tree -a -I '.git'";
+      e = "$IDE";
 
       python = "python3";
       py = "python3";
