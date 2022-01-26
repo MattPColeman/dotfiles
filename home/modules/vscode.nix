@@ -21,6 +21,7 @@
         { key = "cmd+escape"; command = "workbench.action.closeSidebar"; }
       ];
       userSettings = with pkgs; {
+        "http.proxyStrictSSL" = false;
         "window.menuBarVisibility" = "toggle";
         "terminal.integrated.shell.osx" = "/bin/zsh";
         "breadcrumbs.enabled" = false;
@@ -53,11 +54,11 @@
         "go.useGoProxyToCheckForToolUpdates" = false;
 
         "python.formatting.provider" = "black";
-        "python.formatting.blackPath" = "${python38Packages.black}/bin/black";
+        "python.formatting.blackPath" = "${python37Packages.black}/bin/black";
         "python.linting.pylintEnabled" = false;
-        "python.linting.pylintPath" = "${python38Packages.pylint}/bin/pylint";
+        "python.linting.pylintPath" = "${python37Packages.pylint}/bin/pylint";
         "python.linting.flake8Enabled" = true;
-        "python.linting.flake8Path" = "${python38Packages.flake8}/bin/flake8";
+        "python.linting.flake8Path" = "${python37Packages.flake8}/bin/flake8";
         "python.linting.flake8Args" = [ "--max-line-length=88" ];
 
         "nixfmt.path" = "${nixfmt}/bin/nixfmt";

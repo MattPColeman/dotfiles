@@ -14,7 +14,9 @@ in
   ];
 
   home.packages = with pkgs; [
-    awscli
+    awscli2
+    nodejs-14_x
+    nodePackages.serverless
     ncdu
     tree
     watch
@@ -30,10 +32,12 @@ in
     nixfmt
     pipenv
     python27Full
-    python38Full
-    python38Packages.pylint
-    python38Packages.flake8
-    python38Packages.black
+    python37Full
+    python37Packages.pip
+    python37Packages.pylint
+    python37Packages.flake8
+    python37Packages.black
+    python37Packages.psycopg2
   ];
 
   programs = {
@@ -84,6 +88,7 @@ in
       extraConfig = {
         pull.rebase = "false";
         init.defaultBranch = "master";
+        http.sslCAInfo = "/Users/matt/.config/git/caadmin.netskope.com.pem";
       };
     };
     ssh.enable = true;

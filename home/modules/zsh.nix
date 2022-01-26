@@ -9,7 +9,7 @@ in
     dotDir = ".config/zsh";
     envExtra = ''
       source $HOME/.nix-profile/etc/profile.d/nix.sh
-      export PATH=${binDir}:$HOME/.nix-profile/bin:$PATH
+      export PATH=${binDir}:$HOME/.nix-profile/bin:/usr/local/bin:$PATH
       export GOROOT=${pkgs.go.out}/share/go
       export GOPATH=$HOME/go
     '';
@@ -21,7 +21,7 @@ in
     };
     initExtra = ''
       # Tmux at shell init
-      [[ $TERM != "screen" ]] && exec tmux
+      # [[ $TERM != "screen" ]] && exec tmux
 
       # xdg.enable may not set these early enough
       export XDG_CACHE_HOME=$HOME/.cache

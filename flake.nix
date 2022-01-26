@@ -33,7 +33,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users."matt.coleman" = { ... }:
+          home-manager.users."matt" = { ... }:
             { imports = [ ./home/macos-specific.nix ./themes/dracula ]; };
         }
       ];
